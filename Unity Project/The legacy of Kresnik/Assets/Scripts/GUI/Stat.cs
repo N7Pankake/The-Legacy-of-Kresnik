@@ -8,6 +8,9 @@ public class Stat : MonoBehaviour {
     private Image content;
 
     [SerializeField]
+    private Text statValue;
+
+    [SerializeField]
     private float lerpSpeed;
 
     private float currentFill;
@@ -39,6 +42,8 @@ public class Stat : MonoBehaviour {
             }
 
             currentFill = currentValue / MyMaxValue;
+
+            statValue.text = currentValue + " / " + MyMaxValue;
         }
     }
 
