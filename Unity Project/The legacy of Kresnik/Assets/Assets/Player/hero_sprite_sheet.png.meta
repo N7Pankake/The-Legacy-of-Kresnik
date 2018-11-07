@@ -30,6 +30,18 @@ TextureImporter:
     21300050: IdleD2
     21300052: IdleD3
     21300054: IdleD4
+    21300056: IdleR1
+    21300058: IdleR2
+    21300060: IdleR3
+    21300062: IdleR4
+    21300064: IdleL1
+    21300066: IdleL2
+    21300068: IdleL3
+    21300070: IdleL4
+    21300072: IdleU1
+    21300074: IdleU2
+    21300076: IdleU3
+    21300078: IdleU4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -678,6 +690,246 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5d287cf5165e5e848b3760b7b346182b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleR1
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 577
+        width: 27
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97abfc412ebc0f14cb5b3cd5b256d1f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleR2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 577
+        width: 25
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29956fc914df1fe488b1b7ec40758ed0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleR3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 577
+        width: 25
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a7bcc2891f66d46a8d7f9419daa253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleR4
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 577
+        width: 25
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af84ef9749175d45921f0f6bf148a49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleL1
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 577
+        width: 27
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecaa1d8bf269425419ea7da96e63d557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleL2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 525
+        width: 24
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f213720cf81d2f40b6f5eb9ed4cab07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleL3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 525
+        width: 25
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26309fe6fb1039408fe3b71dd93471a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleL4
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 525
+        width: 25
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdfb1bc79aa1984186c567fcc87554c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleU1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 527
+        width: 26
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9151f318934ec4b449fe4afd05b78218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleU2
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 527
+        width: 24
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7430ad59ea5a1504fb98345fba9b68ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleU3
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 527
+        width: 24
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b8e23aeb814ba4a9321b1ab23fb6bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleU4
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 527
+        width: 24
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53fb1cb5794f0e4eb35605773d285e7
       vertices: []
       indices: 
       edges: []

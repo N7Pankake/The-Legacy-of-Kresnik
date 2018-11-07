@@ -5,121 +5,80 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    //Movement
-    public float maxSpeed = 3;
-    public float speed = 50f;
+    //Player Speed
+    [SerializeField]
+    private float speed;
 
-    //Management
-    private Rigidbody2D myBody;
-    private Animator myAnim;
+    //Player Direction
+    private Vector2 direction;
 
+    //Player Animation
+    private Animator animator;
+    
 	// Use this for initialization
 	void Start () {
 
-        myBody = gameObject.GetComponent<Rigidbody2D>();
-        myAnim = gameObject.GetComponent<Animator>();
-        int playerLayer = LayerMask.NameToLayer("Player");
-
-        myAnim.SetBool("FacingL", false);
-        myAnim.SetBool("FacingR", false);
-
-        Time.timeScale = 1;
+        direction = Vector2.down;
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        myAnim.SetFloat("SpeedX", Mathf.Abs(myBody.velocity.x));
-        myAnim.SetFloat("SpeedY", Mathf.Abs(myBody.velocity.y));
-
-        //Movement
-        if (Input.GetAxis("Horizontal") < -0.1f)
         {
-            transform.localScale = new Vector3(-4, 4, 1);
+            GetInpu();
+            Move();
         }
-
-    if (Input.GetAxis("Horizontal") < 0.1f)
-        {
-            transform.localScale = new Vector3(4, 4, 1);
-        }
-
-        if (Input.GetAxis("Vertical") < -0.1f)
-        {
-            transform.localScale = new Vector3(4, -4, 1);
-        }
-
-    if (Input.GetAxis("Vertical") < 0.1f)
-        {
-            transform.localScale = new Vector3(4, 4, 1);
-        }
-
-    /*if (Input.GetAxis("Vertical") == 0)
-        {
-                myAnim.SetBool("FacingR", false);
-                myAnim.SetBool("FacingU", false);
-                myAnim.SetBool("FacingD", false);
-                myAnim.SetBool("FacingL", false);
-        }
-
-    if(Input.GetAxis("Horizontal") == 0)
-       {
-            myAnim.SetBool("FacingR", false);
-            myAnim.SetBool("FacingU", false);
-            myAnim.SetBool("FacingD", false);
-            myAnim.SetBool("FacingL", false);
-       }*/
     }
 
-    void FixedUpdate()
+    public void Move()
     {
-        //Velocity
-        Vector3 easeVelocity = myBody.velocity;
-        easeVelocity.y = myBody.velocity.y;
-        easeVelocity.z = 0;
-        easeVelocity.x *= 0.75f;
+        //Move the player
+        transform.Translate(direction * speed * Time.deltaTime);
 
-        float moveX = Input.GetAxis("Horizontal");
-
-        //Movement X
-        myBody.AddForce((Vector2.right * speed)*moveX);
-        if(myBody.velocity.x > maxSpeed)
+        if(direction.x != 0 || direction.y !=0)
         {
-            myBody.velocity = new Vector2(maxSpeed, myBody.velocity.y);
-            myAnim.SetBool("FacingL", false);
-            myAnim.SetBool("FacingU", false);
-            myAnim.SetBool("FacingD", false);
-            myAnim.SetBool("FacingR", true);
+          //Animate the player movement
+          AnimateMovement(direction);
+        }        
+        else
+        {
+            animator.SetLayerWeight(1, 0);
+        }
+    }
+
+    private void GetInpu()
+    {
+        direction = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            direction += Vector2.up;
         }
 
-        if (myBody.velocity.x < -maxSpeed)
+        if (Input.GetKey(KeyCode.A))
         {
-            myBody.velocity = new Vector2(-maxSpeed, myBody.velocity.y);
-            myAnim.SetBool("FacingR", false);
-            myAnim.SetBool("FacingU", false);
-            myAnim.SetBool("FacingD", false);
-            myAnim.SetBool("FacingL", true);
+            direction += Vector2.left;
         }
 
-        //Movement Y
-        float moveY = Input.GetAxis("Vertical");
-                        
-        myBody.AddForce((Vector2.up * speed) * moveY);
-        if (myBody.velocity.y > maxSpeed)
+        if (Input.GetKey(KeyCode.S))
         {
-            myBody.velocity = new Vector2(maxSpeed, myBody.velocity.x);
-            myAnim.SetBool("FacingR", false);
-            myAnim.SetBool("FacingL", false);
-            myAnim.SetBool("FacingD", false);
-            myAnim.SetBool("FacingU", true);
+            direction += Vector2.down;
         }
 
-        if (myBody.velocity.y < -maxSpeed)
+        if (Input.GetKey(KeyCode.D))
         {
-            myBody.velocity = new Vector2(-maxSpeed, myBody.velocity.x);
-            myAnim.SetBool("FacingR", false);
-            myAnim.SetBool("FacingL", false);
-            myAnim.SetBool("FacingU", false);
-            myAnim.SetBool("FacingD", true);
+            direction += Vector2.right;
         }
+    }
+
+
+    public void AnimateMovement(Vector2 direction)
+    {
+        animator.SetLayerWeight(1, 1);
+
+        //Set the right animation depending on which direction he is facing
+        animator.SetFloat("x", direction.x);
+        animator.SetFloat("y", direction.y);
     }
 }
