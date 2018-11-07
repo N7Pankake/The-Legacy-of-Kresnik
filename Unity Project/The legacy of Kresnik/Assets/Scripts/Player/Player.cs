@@ -3,53 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class Player : Character {
 
-    //Player Speed
+    //Player Health
     [SerializeField]
-    private float speed;
+    private Stat health;
 
-    //Player Direction
-    private Vector2 direction;
+    //Player Mana
+    [SerializeField]
+    private Stat mana;
 
-    //Player Animation
-    private Animator animator;
-    
-	// Use this for initialization
-	void Start () {
+    private float initHealth = 100;
+    private float initMana = 50;
 
-        direction = Vector2.down;
-        animator = GetComponent<Animator>();
+    protected override void Start()
+    {
+        health.Initialize(initHealth, initHealth);
+        mana.Initialize(initMana, initMana);
+        base.Start();
     }
 	
 	// Update is called once per frame
-	void Update () {
-
-        {
-            GetInpu();
-            Move();
-        }
-    }
-
-    public void Move()
+	protected override void Update ()
     {
-        //Move the player
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        if(direction.x != 0 || direction.y !=0)
-        {
-          //Animate the player movement
-          AnimateMovement(direction);
-        }        
-        else
-        {
-            animator.SetLayerWeight(1, 0);
-        }
+            GetInput();
+            base.Update();
     }
 
-    private void GetInpu()
+    private void GetInput()
     {
         direction = Vector2.zero;
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            health.MyCurrentValue -= 10;
+            mana.MyCurrentValue -= 10;
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            health.MyCurrentValue += 10;
+            mana.MyCurrentValue += 10;
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -70,15 +65,5 @@ public class Player : MonoBehaviour {
         {
             direction += Vector2.right;
         }
-    }
-
-
-    public void AnimateMovement(Vector2 direction)
-    {
-        animator.SetLayerWeight(1, 1);
-
-        //Set the right animation depending on which direction he is facing
-        animator.SetFloat("x", direction.x);
-        animator.SetFloat("y", direction.y);
     }
 }
