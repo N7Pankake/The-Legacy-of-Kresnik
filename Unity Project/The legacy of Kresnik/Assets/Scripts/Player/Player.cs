@@ -34,18 +34,6 @@ public class Player : Character {
     {
         direction = Vector2.zero;
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            health.MyCurrentValue -= 10;
-            mana.MyCurrentValue -= 10;
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            health.MyCurrentValue += 10;
-            mana.MyCurrentValue += 10;
-        }
-
         if (Input.GetKey(KeyCode.W))
         {
             direction += Vector2.up;
@@ -64,6 +52,28 @@ public class Player : Character {
         if (Input.GetKey(KeyCode.D))
         {
             direction += Vector2.right;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            skillRoutine = StartCoroutine(Skills());
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isAttacking = true;
+            myAnimator.SetBool("attack", isAttacking);
+        }
+    }
+
+    private IEnumerator Skills()
+    {
+        if (!isUsingSkill && !IsMoving)
+        {
+            isUsingSkill = true;
+            myAnimator.SetBool("skill", isUsingSkill);
+            yield return new WaitForSeconds(1);
+            StopSkill();
         }
     }
 }

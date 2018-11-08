@@ -9,13 +9,19 @@ public abstract class Character : MonoBehaviour {
     private float speed;
 
     //Character Animation
-    private Animator myAnimator;
+    protected Animator myAnimator;
 
     //Character Direction
     protected Vector2 direction;
 
     //Character RigidBody
     private Rigidbody2D myRigidBody;
+
+    //Character Skills&Attacks
+    protected bool isUsingSkill = false;
+    protected bool isAttacking = false;
+
+    protected Coroutine skillRoutine;
 
     public bool IsMoving
     {
@@ -60,6 +66,17 @@ public abstract class Character : MonoBehaviour {
             //Set the right animation depending on which direction he is facing
             myAnimator.SetFloat("x", direction.x);
             myAnimator.SetFloat("y", direction.y);
+
+            //This will stop the skills if you decide to walk.
+            StopSkill();
+        }
+        else if (isUsingSkill)
+        {
+            ActivateLayer("SkillLayer");
+        }
+        else if (isAttacking)
+        {
+            ActivateLayer("AttackLayer");
         }
         else
         {
@@ -74,8 +91,17 @@ public abstract class Character : MonoBehaviour {
         {
             myAnimator.SetLayerWeight(i, 0);
         }
-
         myAnimator.SetLayerWeight(myAnimator.GetLayerIndex(layerName),1);
     }
 
+    public void StopSkill()
+    {
+        if(skillRoutine != null)
+        {
+            StopCoroutine(skillRoutine);
+            isUsingSkill = false;
+            myAnimator.SetBool("skill", isUsingSkill);
+        }
+        
+    }
 }
