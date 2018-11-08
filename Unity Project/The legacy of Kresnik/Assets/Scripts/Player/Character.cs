@@ -9,46 +9,73 @@ public abstract class Character : MonoBehaviour {
     private float speed;
 
     //Character Animation
-    private Animator animator;
+    private Animator myAnimator;
 
     //Character Direction
     protected Vector2 direction;
 
+    //Character RigidBody
+    private Rigidbody2D myRigidBody;
+
+    public bool IsMoving
+    {
+        get
+        {
+            return direction.x != 0 || direction.y != 0;
+        }
+
+    }
+
     // Use this for initialization
     protected virtual void Start ()
     {
-        animator = GetComponent<Animator>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	protected virtual void Update ()
     {
-        Move();
-        AnimateMovement(direction);
+        HandleLayers();
 	}
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
 
     public void Move()
     {
         //Move the Character
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        myRigidBody.velocity = direction.normalized * speed;
+    }
 
-        if (direction.x != 0 || direction.y != 0)
+    public void HandleLayers()
+    {
+        //Checks if we are Idle or walking.
+        if (IsMoving)
         {
-            //Animate the Character movement
-            animator.SetLayerWeight(1, 1);
-            AnimateMovement(direction);
+            ActivateLayer("WalkLayer");
+
+            //Set the right animation depending on which direction he is facing
+            myAnimator.SetFloat("x", direction.x);
+            myAnimator.SetFloat("y", direction.y);
         }
         else
         {
-            animator.SetLayerWeight(1, 0);
+            //Change the layer back to Idle when we are not pressing Keys.
+            ActivateLayer("IdleLayer");
         }
     }
 
-    public void AnimateMovement(Vector2 direction)
+    public void ActivateLayer(string layerName)
     {
-        //Set the right animation depending on which direction he is facing
-        animator.SetFloat("x", direction.x);
-        animator.SetFloat("y", direction.y);
+        for (int i = 0; i < myAnimator.layerCount; i++)
+        {
+            myAnimator.SetLayerWeight(i, 0);
+        }
+
+        myAnimator.SetLayerWeight(myAnimator.GetLayerIndex(layerName),1);
     }
 
 }
