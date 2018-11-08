@@ -8,14 +8,13 @@ public class Player : Character {
     //Player Health
     [SerializeField]
     private Stat health;
+    private float initHealth = 100;
 
     //Player Mana
     [SerializeField]
     private Stat mana;
-
-    private float initHealth = 100;
     private float initMana = 50;
-
+    
     protected override void Start()
     {
         health.Initialize(initHealth, initHealth);
@@ -61,8 +60,9 @@ public class Player : Character {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            isAttacking = true;
-            myAnimator.SetBool("attack", isAttacking);
+           isAttacking = true;
+           attackTimer = attackCd;
+           Attack();
         }
     }
 
