@@ -14,6 +14,9 @@ public class Player : Character {
     [SerializeField]
     private Stat mana;
     private float initMana = 50;
+
+    //Player Attack
+
     
     protected override void Start()
     {
@@ -60,9 +63,7 @@ public class Player : Character {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-           isAttacking = true;
-           attackTimer = attackCd;
-           Attack();
+            Attack();
         }
     }
 
@@ -75,5 +76,11 @@ public class Player : Character {
             yield return new WaitForSeconds(1);
             StopSkill();
         }
+    }
+
+    private void Attack()
+    {
+        isAttacking = true;
+        myAnimator.SetTrigger("attack");
     }
 }

@@ -19,10 +19,7 @@ public abstract class Character : MonoBehaviour {
 
     //Character Skills&Attacks
     protected bool isUsingSkill = false;
-
     protected bool isAttacking = false;
-    protected float attackTimer;
-    protected float attackCd = 0.5f;
 
     protected Coroutine skillRoutine;
 
@@ -77,6 +74,10 @@ public abstract class Character : MonoBehaviour {
         {
             ActivateLayer("SkillLayer");
         }
+        else if (isAttacking)
+        {
+            ActivateLayer("AttackLayer");
+        }
         else
         {
             //Change the layer back to Idle when we are not pressing Keys.
@@ -102,23 +103,5 @@ public abstract class Character : MonoBehaviour {
             myAnimator.SetBool("skill", isUsingSkill);
         }
         
-    }
-    public void Attack()
-    {
-        if (isAttacking)
-        {
-            if (attackTimer > 0)
-            {
-                attackTimer -= Time.deltaTime;
-                ActivateLayer("AttackLayer");
-            }
-
-            else
-            {
-                isAttacking = false;
-            }
-
-        }
-        myAnimator.SetBool("attack", isAttacking);
     }
 }
