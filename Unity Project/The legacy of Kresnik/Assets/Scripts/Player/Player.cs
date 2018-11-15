@@ -15,13 +15,28 @@ public class Player : Character {
     private Stat mana;
     private float initMana = 50;
 
-    //Player Attack
+    //Player Skills
+    [SerializeField]
+    private GameObject[] skillPrefab;
+
+    [SerializeField]
+    private Block[] blocks;
+
+    [SerializeField]
+    private Transform[] exitPoints;
+
+    private int exitIndex = 2;
+
+    private Transform target;
 
     
     protected override void Start()
     {
         health.Initialize(initHealth, initHealth);
         mana.Initialize(initMana, initMana);
+
+        target = GameObject.Find("Decoy").transform;
+
         base.Start();
     }
 	
@@ -39,26 +54,35 @@ public class Player : Character {
         if (Input.GetKey(KeyCode.W))
         {
             direction += Vector2.up;
+            exitIndex = 0;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             direction += Vector2.left;
+            exitIndex = 3;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             direction += Vector2.down;
+            exitIndex = 2;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             direction += Vector2.right;
+            exitIndex = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            skillRoutine = StartCoroutine(Skills());
+            Block();
+
+            if (!isUsingSkill && !IsMoving && InLineOfSight())
+            {
+                skillRoutine = StartCoroutine(Skills());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -69,13 +93,43 @@ public class Player : Character {
 
     private IEnumerator Skills()
     {
-        if (!isUsingSkill && !IsMoving)
+        isUsingSkill = true;
+
+        myAnimator.SetBool("skill", isUsingSkill);
+
+        yield return new WaitForSeconds(0.4f);
+
+        CastSkill();
+
+        StopSkill();
+    }
+
+    public void CastSkill()
+    {
+        Instantiate (skillPrefab[0], exitPoints[exitIndex].position, Quaternion.identity);        
+    }
+
+    private bool InLineOfSight()
+    {
+        Vector3 targetDirection = (target.transform.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, target.transform.position), 256);
+           
+        if (hit.collider == null)
         {
-            isUsingSkill = true;
-            myAnimator.SetBool("skill", isUsingSkill);
-            yield return new WaitForSeconds(1);
-            StopSkill();
+            return true;
         }
+
+        return false;
+    }
+
+    private void Block()
+    {
+        foreach(Block b in blocks)
+        {
+            b.Deactivate();
+        }
+
+        blocks[exitIndex].Activate();
     }
 
     private void Attack()
