@@ -1,0 +1,1582 @@
+fileFormatVersion: 2
+guid: 7fa0b55db2a174444807e5ccf8dd38a2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: goblinsword_0
+    21300002: goblinsword_1
+    21300004: goblinsword_2
+    21300006: goblinsword_3
+    21300008: goblinsword_4
+    21300010: goblinsword_5
+    21300012: goblinsword_6
+    21300014: goblinsword_7
+    21300016: goblinsword_8
+    21300018: goblinsword_9
+    21300020: goblinsword_10
+    21300022: goblinsword_11
+    21300024: goblinsword_12
+    21300026: goblinsword_13
+    21300028: goblinsword_14
+    21300030: goblinsword_15
+    21300032: goblinsword_16
+    21300034: goblinsword_17
+    21300036: goblinsword_18
+    21300038: goblinsword_19
+    21300040: goblinsword_20
+    21300042: goblinsword_21
+    21300044: goblinsword_22
+    21300046: goblinsword_23
+    21300048: goblinsword_24
+    21300050: goblinsword_25
+    21300052: goblinsword_26
+    21300054: goblinsword_27
+    21300056: goblinsword_28
+    21300058: goblinsword_29
+    21300060: goblinsword_30
+    21300062: goblinsword_31
+    21300064: goblinsword_32
+    21300066: goblinsword_33
+    21300068: goblinsword_34
+    21300070: goblinsword_35
+    21300072: goblinsword_36
+    21300074: goblinsword_37
+    21300076: goblinsword_38
+    21300078: goblinsword_39
+    21300080: goblinsword_40
+    21300082: goblinsword_41
+    21300084: goblinsword_42
+    21300086: goblinsword_43
+    21300088: goblinsword_44
+    21300090: goblinsword_45
+    21300092: goblinsword_46
+    21300094: goblinsword_47
+    21300096: goblinsword_48
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: goblinsword_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 265
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e1aca9e66a6ca4db67e58257378fb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 262
+        width: 27
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2605880e20adda343b5e31df7eef1c94
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 265
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168a73d767d3bdf458b80643cbde13e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 265
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4254689b5342e9469ccfaa7c0d6f3ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 262
+        width: 27
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51e823dbd6c6514bbece3b41d6e7f51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_5
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 265
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30abc95ffa5479d46b131201ebe4e5c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_6
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 267
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4477a8b3cf6d9244c8f305f5cf320e1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 264
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0a869d7d501af46a9195ddd65d7610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_8
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 258
+        width: 28
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00176fae30ede04793accdbf2698884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_9
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 259
+        width: 28
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33006da46e0307f4eb825b3cd5f66f32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_10
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 267
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b984b626fc81194ab4ca60a89886753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_11
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 200
+        width: 28
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b41360e1c8068b499b899bf88636789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_12
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 200
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4d6518b595ffd48b53dde67620ecb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_13
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 201
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a411b75536c6604e9fd45b57bb70538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 201
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf6703fa4bf68e41ad5f6a2c2567864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_15
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 200
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2706abdc5a50a5041b81723015192ff7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_16
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 200
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9acb500da1e2444682662e4c96f1547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_17
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 200
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58bfb3f95b5a26940ab417d87d3a0724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_18
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 200
+        width: 24
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01658398c7be654e8df14a2e4e42f2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_19
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 200
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0477de8b1c124d4e8f3232e4051d9c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_20
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 200
+        width: 40
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13009ee338cfc74dbee502301802b9a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_21
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 200
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01beec5544878a40ab2f584518ec34d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_22
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 130
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca193cf35369a6444a2d28ee0684d806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_23
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 128
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d649c75596c0677479436ca2aa5eef99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_24
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 130
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5591693a84afbfd4d985a2dd51ed70d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_25
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 130
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cf675301ab02542b2b248a4f38aabe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_26
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 128
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7798414ea1bc569448aa06044e254770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_27
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 130
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a575825cfe213434b97f4ce623b93a9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_28
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 131
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e0c8a99fd8dcd43856f13f5c9b4b99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_29
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 131
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48dc76a9183e9c443af23eda6fe6d0e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_30
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 131
+        width: 29
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cc54eb6be82ad44b78933dd8a38cf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_31
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 131
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14e1ab249ea9084d9fedb73e74bad13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_32
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 131
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50c7ac0adc04d24d805d0f03a387edd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_33
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 70
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3b906b26fb9444e866fc4b933edb84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_34
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 70
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970e8a2a08b4a0b45ba85c805e7d7ab2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_35
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 71
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c1d0bf65acf434fb88af8a385c8b1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_36
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 71
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9721770433fe6bc479cdfcb1ff656b10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_37
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 70
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e515b6d982fa9084885bb170a9338dbc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_38
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 70
+        width: 28
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b319a97f0125d2845a759aa092f966ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_39
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 70
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986f5527db079db4aaf4d69059a412a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_40
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 70
+        width: 24
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f58bf70c5532b40932a6dfa84cc620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_41
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 70
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c47422c0e4940e4dbee4921fa45d491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_42
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 70
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90764b1c40e1cc43b4f118ceca07f7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_43
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 70
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdde53281b5186449f8eacb5feaee12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_44
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 7
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cf88a05bfc52249b0cf3932e3a53d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_45
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 2
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6990cc14d6e243e4eae84a762528d2e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_46
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49c955eb47d64d448cdff52c2af82cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_47
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fbfc8fe58459343a6b0446864aa08d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblinsword_48
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38dabdcb8924aa4ba4b58820f765633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -138, y: -120}
+      - {x: -143, y: -121}
+      - {x: -151, y: -152}
+      - {x: -151, y: -160}
+      - {x: -104, y: -160}
+      - {x: -104, y: -125}
+      - {x: -106, y: -120}
+    - - {x: -80, y: -114}
+      - {x: -87, y: -152}
+      - {x: -87, y: -160}
+      - {x: -37, y: -160}
+      - {x: -37, y: -132}
+      - {x: -39, y: -114}
+    - - {x: -263, y: -110}
+      - {x: -271, y: -113}
+      - {x: -271, y: -160}
+      - {x: -258, y: -160}
+      - {x: -238, y: -155}
+      - {x: -238, y: -110}
+    - - {x: -216, y: -147}
+      - {x: -216, y: -160}
+      - {x: -170, y: -160}
+      - {x: -170, y: -134}
+      - {x: -175, y: -121}
+      - {x: -194, y: -121}
+      - {x: -206, y: -133}
+    - - {x: -304, y: -106}
+      - {x: -314, y: -98}
+      - {x: -328, y: -98}
+      - {x: -338, y: -113}
+      - {x: -338, y: -115}
+      - {x: -333, y: -116}
+      - {x: -329, y: -118}
+      - {x: -329, y: -117}
+      - {x: -331, y: -118}
+      - {x: -335, y: -122}
+      - {x: -338, y: -127}
+      - {x: -338, y: -141}
+      - {x: -337, y: -149}
+      - {x: -332, y: -155}
+      - {x: -309, y: -155}
+      - {x: -305, y: -153}
+      - {x: -302, y: -137}
+      - {x: -302, y: -119}
+    - - {x: -307, y: -35}
+      - {x: -325, y: -35}
+      - {x: -339, y: -56}
+      - {x: -339, y: -82}
+      - {x: -325, y: -92}
+      - {x: -308, y: -92}
+      - {x: -301, y: -82}
+      - {x: -301, y: -42}
+    - - {x: -241, y: -77}
+      - {x: -238, y: -80}
+      - {x: -234, y: -80}
+      - {x: -230, y: -78}
+      - {x: -230, y: -66}
+      - {x: -236, y: -41}
+      - {x: -243, y: -36}
+      - {x: -255, y: -36}
+      - {x: -280, y: -68}
+      - {x: -280, y: -82}
+      - {x: -264, y: -92}
+      - {x: -239, y: -92}
+      - {x: -237, y: -82}
+      - {x: -241, y: -79}
+      - {x: -241, y: -74}
+    - - {x: -56, y: -36}
+      - {x: -71, y: -44}
+      - {x: -71, y: -88}
+      - {x: -68, y: -91}
+      - {x: -60, y: -91}
+      - {x: -57, y: -88}
+      - {x: -53, y: -92}
+      - {x: -39, y: -92}
+      - {x: -39, y: -36}
+    - - {x: 2, y: -35}
+      - {x: -9, y: -52}
+      - {x: -9, y: -90}
+      - {x: 1, y: -91}
+      - {x: 7, y: -90}
+      - {x: 10, y: -87}
+      - {x: 10, y: -83}
+      - {x: 10, y: -90}
+      - {x: 12, y: -92}
+      - {x: 21, y: -92}
+      - {x: 23, y: -89}
+      - {x: 23, y: -35}
+    - - {x: 66, y: -35}
+      - {x: 55, y: -56}
+      - {x: 55, y: -83}
+      - {x: 67, y: -92}
+      - {x: 84, y: -92}
+      - {x: 88, y: -90}
+      - {x: 88, y: -37}
+      - {x: 86, y: -35}
+    - - {x: 142, y: -35}
+      - {x: 132, y: -35}
+      - {x: 123, y: -39}
+      - {x: 123, y: -84}
+      - {x: 127, y: -92}
+      - {x: 150, y: -92}
+      - {x: 151, y: -91}
+      - {x: 151, y: -40}
+      - {x: 149, y: -38}
+    - - {x: 166, y: -35}
+      - {x: 166, y: -83}
+      - {x: 171, y: -92}
+      - {x: 217, y: -92}
+      - {x: 217, y: -44}
+      - {x: 213, y: -35}
+    - - {x: 235, y: -81}
+      - {x: 254, y: -92}
+      - {x: 280, y: -92}
+      - {x: 280, y: -35}
+      - {x: 246, y: -35}
+      - {x: 235, y: -42}
+    - - {x: 326, y: -35}
+      - {x: 309, y: -57}
+      - {x: 309, y: -85}
+      - {x: 319, y: -92}
+      - {x: 348, y: -92}
+      - {x: 348, y: -35}
+    - - {x: -189, y: -35}
+      - {x: -197, y: -48}
+      - {x: -209, y: -77}
+      - {x: -209, y: -82}
+      - {x: -189, y: -91}
+      - {x: -176, y: -91}
+      - {x: -170, y: -82}
+      - {x: -170, y: -42}
+      - {x: -179, y: -35}
+    - - {x: -132, y: -35}
+      - {x: -140, y: -51}
+      - {x: -140, y: -88}
+      - {x: -135, y: -91}
+      - {x: -110, y: -91}
+      - {x: -107, y: -90}
+      - {x: -107, y: -35}
+    - - {x: -255, y: 21}
+      - {x: -268, y: 21}
+      - {x: -272, y: 19}
+      - {x: -272, y: -34}
+      - {x: -254, y: -34}
+      - {x: -238, y: -25}
+      - {x: -238, y: 8}
+      - {x: -240, y: 15}
+    - - {x: -61, y: 21}
+      - {x: -76, y: 15}
+      - {x: -76, y: -24}
+      - {x: -60, y: -34}
+      - {x: -44, y: -34}
+      - {x: -43, y: -32}
+      - {x: -43, y: 13}
+      - {x: -51, y: 21}
+    - - {x: -338, y: 21}
+      - {x: -338, y: -32}
+      - {x: -307, y: -32}
+      - {x: -303, y: -30}
+      - {x: -303, y: 17}
+      - {x: -316, y: 21}
+    - - {x: -208, y: 22}
+      - {x: -208, y: -32}
+      - {x: -179, y: -32}
+      - {x: -172, y: -30}
+      - {x: -172, y: 15}
+      - {x: -181, y: 22}
+    - - {x: -133, y: 21}
+      - {x: -142, y: 18}
+      - {x: -142, y: -31}
+      - {x: -141, y: -32}
+      - {x: -107, y: -32}
+      - {x: -107, y: 21}
+    - - {x: 9, y: 22}
+      - {x: 0, y: 22}
+      - {x: -11, y: 17}
+      - {x: -12, y: 12}
+      - {x: -12, y: -25}
+      - {x: -6, y: -32}
+      - {x: 18, y: -32}
+      - {x: 23, y: -18}
+      - {x: 23, y: 6}
+      - {x: 21, y: 16}
+    - - {x: 70, y: 22}
+      - {x: 63, y: 22}
+      - {x: 54, y: 13}
+      - {x: 55, y: 10}
+      - {x: 57, y: 7}
+      - {x: 61, y: 5}
+      - {x: 61, y: 6}
+      - {x: 59, y: 5}
+      - {x: 53, y: 3}
+      - {x: 52, y: -1}
+      - {x: 52, y: -31}
+      - {x: 87, y: -31}
+      - {x: 88, y: -29}
+      - {x: 88, y: 13}
+      - {x: 84, y: 17}
+    - - {x: 126, y: 22}
+      - {x: 120, y: 13}
+      - {x: 121, y: 10}
+      - {x: 123, y: 7}
+      - {x: 127, y: 5}
+      - {x: 127, y: 6}
+      - {x: 125, y: 5}
+      - {x: 120, y: 1}
+      - {x: 119, y: -1}
+      - {x: 119, y: -22}
+      - {x: 122, y: -31}
+      - {x: 147, y: -31}
+      - {x: 152, y: -30}
+      - {x: 152, y: 17}
+      - {x: 140, y: 22}
+    - - {x: 196, y: 33}
+      - {x: 185, y: 17}
+      - {x: 185, y: -31}
+      - {x: 211, y: -31}
+      - {x: 217, y: -24}
+      - {x: 218, y: -18}
+      - {x: 218, y: 33}
+    - - {x: 282, y: 29}
+      - {x: 259, y: 29}
+      - {x: 250, y: 18}
+      - {x: 250, y: -29}
+      - {x: 253, y: -31}
+      - {x: 271, y: -31}
+      - {x: 282, y: -23}
+      - {x: 283, y: -21}
+      - {x: 283, y: 27}
+    - - {x: 318, y: 22}
+      - {x: 314, y: 14}
+      - {x: 314, y: -27}
+      - {x: 316, y: -31}
+      - {x: 345, y: -31}
+      - {x: 346, y: -24}
+      - {x: 346, y: 19}
+      - {x: 341, y: 22}
+    - - {x: -325, y: 39}
+      - {x: -315, y: 40}
+      - {x: -308, y: 51}
+      - {x: -308, y: 66}
+      - {x: -320, y: 95}
+      - {x: -335, y: 95}
+      - {x: -340, y: 88}
+      - {x: -340, y: 41}
+      - {x: -339, y: 38}
+      - {x: -329, y: 38}
+      - {x: -327, y: 40}
+      - {x: -327, y: 44}
+      - {x: -327, y: 43}
+    - - {x: -272, y: 94}
+      - {x: -278, y: 86}
+      - {x: -278, y: 38}
+      - {x: -246, y: 38}
+      - {x: -246, y: 77}
+      - {x: -253, y: 94}
+    - - {x: -80, y: 94}
+      - {x: -87, y: 70}
+      - {x: -87, y: 50}
+      - {x: -78, y: 49}
+      - {x: -76, y: 53}
+      - {x: -76, y: 57}
+      - {x: -76, y: 51}
+      - {x: -80, y: 48}
+      - {x: -78, y: 38}
+      - {x: -53, y: 38}
+      - {x: -37, y: 50}
+      - {x: -37, y: 70}
+      - {x: -62, y: 94}
+    - - {x: -9, y: 95}
+      - {x: -16, y: 90}
+      - {x: -16, y: 38}
+      - {x: 22, y: 38}
+      - {x: 22, y: 64}
+      - {x: 4, y: 95}
+    - - {x: 58, y: 95}
+      - {x: 50, y: 88}
+      - {x: 50, y: 48}
+      - {x: 51, y: 41}
+      - {x: 52, y: 38}
+      - {x: 83, y: 38}
+      - {x: 83, y: 89}
+      - {x: 65, y: 95}
+    - - {x: 134, y: 95}
+      - {x: 126, y: 95}
+      - {x: 117, y: 90}
+      - {x: 117, y: 39}
+      - {x: 121, y: 38}
+      - {x: 144, y: 38}
+      - {x: 145, y: 40}
+      - {x: 145, y: 78}
+    - - {x: 181, y: 95}
+      - {x: 181, y: 40}
+      - {x: 182, y: 38}
+      - {x: 218, y: 38}
+      - {x: 232, y: 65}
+      - {x: 232, y: 87}
+      - {x: 208, y: 95}
+    - - {x: 256, y: 95}
+      - {x: 248, y: 90}
+      - {x: 248, y: 38}
+      - {x: 276, y: 38}
+      - {x: 292, y: 52}
+      - {x: 292, y: 79}
+      - {x: 280, y: 95}
+    - - {x: 329, y: 95}
+      - {x: 312, y: 95}
+      - {x: 310, y: 92}
+      - {x: 310, y: 52}
+      - {x: 311, y: 41}
+      - {x: 316, y: 38}
+      - {x: 331, y: 39}
+      - {x: 336, y: 41}
+      - {x: 349, y: 53}
+      - {x: 349, y: 74}
+    - - {x: -202, y: 95}
+      - {x: -210, y: 89}
+      - {x: -210, y: 40}
+      - {x: -208, y: 39}
+      - {x: -182, y: 39}
+      - {x: -177, y: 44}
+      - {x: -177, y: 71}
+      - {x: -190, y: 95}
+    - - {x: -123, y: 95}
+      - {x: -141, y: 95}
+      - {x: -146, y: 79}
+      - {x: -147, y: 75}
+      - {x: -147, y: 47}
+      - {x: -144, y: 41}
+      - {x: -139, y: 39}
+      - {x: -120, y: 39}
+      - {x: -108, y: 43}
+      - {x: -108, y: 71}
+      - {x: -115, y: 92}
+    - - {x: 217, y: 152}
+      - {x: 209, y: 155}
+      - {x: 196, y: 155}
+      - {x: 187, y: 143}
+      - {x: 187, y: 100}
+      - {x: 192, y: 96}
+      - {x: 199, y: 96}
+      - {x: 212, y: 103}
+      - {x: 219, y: 115}
+      - {x: 219, y: 138}
+    - - {x: 274, y: 154}
+      - {x: 262, y: 154}
+      - {x: 252, y: 145}
+      - {x: 252, y: 101}
+      - {x: 257, y: 97}
+      - {x: 265, y: 97}
+      - {x: 283, y: 105}
+      - {x: 284, y: 114}
+      - {x: 284, y: 147}
+    - - {x: -262, y: 160}
+      - {x: -270, y: 156}
+      - {x: -270, y: 111}
+      - {x: -267, y: 100}
+      - {x: -241, y: 100}
+      - {x: -240, y: 101}
+      - {x: -239, y: 111}
+      - {x: -239, y: 152}
+      - {x: -243, y: 160}
+    - - {x: -56, y: 160}
+      - {x: -70, y: 160}
+      - {x: -76, y: 152}
+      - {x: -76, y: 115}
+      - {x: -75, y: 100}
+      - {x: -53, y: 100}
+      - {x: -46, y: 103}
+      - {x: -45, y: 107}
+      - {x: -45, y: 156}
+    - - {x: 132, y: 160}
+      - {x: 120, y: 150}
+      - {x: 117, y: 135}
+      - {x: 117, y: 119}
+      - {x: 122, y: 104}
+      - {x: 126, y: 102}
+      - {x: 149, y: 102}
+      - {x: 153, y: 103}
+      - {x: 153, y: 154}
+      - {x: 147, y: 160}
+    - - {x: -332, y: 160}
+      - {x: -336, y: 148}
+      - {x: -336, y: 103}
+      - {x: -303, y: 103}
+      - {x: -303, y: 159}
+      - {x: -305, y: 160}
+    - - {x: -195, y: 160}
+      - {x: -206, y: 154}
+      - {x: -206, y: 113}
+      - {x: -201, y: 103}
+      - {x: -176, y: 103}
+      - {x: -174, y: 104}
+      - {x: -173, y: 113}
+      - {x: -173, y: 153}
+      - {x: -178, y: 160}
+    - - {x: -133, y: 160}
+      - {x: -142, y: 154}
+      - {x: -142, y: 118}
+      - {x: -137, y: 107}
+      - {x: -135, y: 103}
+      - {x: -128, y: 103}
+      - {x: -110, y: 107}
+      - {x: -109, y: 116}
+      - {x: -109, y: 151}
+      - {x: -115, y: 160}
+    - - {x: -5, y: 160}
+      - {x: -12, y: 151}
+      - {x: -12, y: 113}
+      - {x: -11, y: 103}
+      - {x: 18, y: 103}
+      - {x: 21, y: 106}
+      - {x: 21, y: 155}
+      - {x: 17, y: 160}
+    - - {x: 79, y: 160}
+      - {x: 62, y: 160}
+      - {x: 55, y: 149}
+      - {x: 55, y: 147}
+      - {x: 57, y: 144}
+      - {x: 61, y: 142}
+      - {x: 61, y: 143}
+      - {x: 59, y: 142}
+      - {x: 55, y: 138}
+      - {x: 52, y: 134}
+      - {x: 52, y: 115}
+      - {x: 56, y: 105}
+      - {x: 81, y: 105}
+      - {x: 86, y: 107}
+      - {x: 88, y: 119}
+      - {x: 88, y: 155}
+    - - {x: 323, y: 159}
+      - {x: 313, y: 146}
+      - {x: 313, y: 142}
+      - {x: 317, y: 142}
+      - {x: 321, y: 140}
+      - {x: 321, y: 141}
+      - {x: 319, y: 140}
+      - {x: 314, y: 136}
+      - {x: 313, y: 129}
+      - {x: 313, y: 105}
+      - {x: 348, y: 105}
+      - {x: 348, y: 147}
+      - {x: 341, y: 159}
+    physicsShape: []
+    bones: []
+    spriteID: 64fe683c44ae09a4285763e374081a52
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
