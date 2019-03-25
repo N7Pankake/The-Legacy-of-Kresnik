@@ -1,9 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Player : Character {
+public class Player : Character
+{
+    private static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+            return instance;
+        }
+    }
 
     //Player Mana
     [SerializeField]
@@ -19,8 +32,6 @@ public class Player : Character {
     private Transform[] exitPoints;
     private int exitIndex = 2;
 
-    private SkillBook skillBook;
-
     //A default basic attack that doesn't follow targets
     [SerializeField]
     private GameObject nonTargetSkill;
@@ -31,7 +42,6 @@ public class Player : Character {
     
     protected override void Start()
     {
-        skillBook = GetComponent<SkillBook>();
         mana.Initialize(initMana, initMana);
 
         base.Start();
@@ -51,51 +61,60 @@ public class Player : Character {
     {
         Direction = Vector2.zero;
          
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Up"]))
         {
             Direction += Vector2.up;
             exitIndex = 0;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Left"]))
         {
             Direction += Vector2.left;
             exitIndex = 3;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Down"]))
         {
             Direction += Vector2.down;
             exitIndex = 2;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Right"]))
         {
             Direction += Vector2.right;
             exitIndex = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NonTargetSkill();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]))
         {
             Attack();
         }
 
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Default"]))
+        {
+            NonTargetSkill();
+        }
+        
         if(IsMoving)
         {
             StopSkill();
         }
+
+        foreach (string action in KeybindManager.MyInstance.ActionBinds.Keys)
+        {
+            if (Input.GetKeyDown(KeybindManager.MyInstance.ActionBinds[action]))
+            {
+                UIManager.MyInstance.ClickActionButton(action);
+            }
+        }
+
     }
 
-    private IEnumerator Skills(int skillIndex)
+    private IEnumerator Skills(string skillName)
     {
         Transform currentTarget = MyTarget;
 
-        Skill newSkill = skillBook.CastSkill(skillIndex);
+        Skill newSkill = SkillBook.MyInstance.CastSkill(skillName);
 
         isUsingSkill = true;
 
@@ -112,13 +131,13 @@ public class Player : Character {
         StopSkill();
     }
 
-    public void CastSkill(int skillIndex)
+    public void CastSkill(string skillName)
     {
         Block();
 
         if (MyTarget != null && MyTarget.GetComponentInParent<Character>().IsAlive && !isUsingSkill && !IsMoving && InLineOfSight())
         {
-            skillRoutine = StartCoroutine(Skills(skillIndex));
+            skillRoutine = StartCoroutine(Skills(skillName));
         }    
     }
 
@@ -162,7 +181,7 @@ public class Player : Character {
 
     public void StopSkill()
     {
-        skillBook.StopCasting();
+        SkillBook.MyInstance.StopCasting();
 
         isUsingSkill = false;
 

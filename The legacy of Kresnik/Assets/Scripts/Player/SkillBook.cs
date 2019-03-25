@@ -1,15 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillBook : MonoBehaviour
 {
+    private static SkillBook instance;
+
+    public static SkillBook MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SkillBook>();
+            }
+            return instance;
+        }
+    }
+
     [SerializeField]
     private Image castingBar;
 
     [SerializeField]
-    private Text skillName;
+    private Text currentSkill;
 
     [SerializeField]
     private Text castTime;
@@ -37,28 +52,30 @@ public class SkillBook : MonoBehaviour
         
     }
 
-    public Skill CastSkill(int index)
+    public Skill CastSkill(string skillName)
     {
+        Skill skill = Array.Find(skills, x => x.MyName == skillName);
+
         castingBar.fillAmount = 0;
 
-        castingBar.color = skills[index].MyBarColor;
+        castingBar.color = skill.MyBarColor;
         
-        skillName.text = skills[index].MyName;
+        currentSkill.text = skill.MyName;
 
-        icon.sprite = skills[index].MyIcon;
+        icon.sprite = skill.MyIcon;
 
-        skillRoutine = StartCoroutine(Progress(index));
+        skillRoutine = StartCoroutine(Progress(skill));
 
         fadeRoutine = StartCoroutine(FadeBar());
 
-        return skills[index];
+        return skill;
     }
 
-    private IEnumerator Progress (int index)
+    private IEnumerator Progress (Skill skill)
     {
         float timePassed = Time.deltaTime;
 
-        float rate = 1.0f / skills[index].MyCastTime;
+        float rate = 1.0f / skill.MyCastTime;
 
         float progress = 0.0f;
 
@@ -70,9 +87,9 @@ public class SkillBook : MonoBehaviour
 
             timePassed += Time.deltaTime;
 
-            castTime.text = (skills[index].MyCastTime - timePassed).ToString("F2");
+            castTime.text = (skill.MyCastTime - timePassed).ToString("F2");
             
-            if (skills[index].MyCastTime - timePassed < 0)
+            if (skill.MyCastTime - timePassed < 0)
             {
                 castTime.text = "0.00";
             }
@@ -113,5 +130,12 @@ public class SkillBook : MonoBehaviour
             StopCoroutine(skillRoutine);
             skillRoutine = null;
         }
+    }
+
+    public Skill GetSkill(string skillName)
+    {
+       Skill skill = Array.Find(skills, x => x.MyName == skillName);
+
+        return skill;
     }
 }

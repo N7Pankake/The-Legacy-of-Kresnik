@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [Serializable]
-public class  Skill
+public class  Skill : IUseable, IMoveable
 {
     [SerializeField]
     private string name;
@@ -82,5 +82,10 @@ public class  Skill
         {
             return barColor;
         }
+    }
+
+    public void Use()
+    {
+        Player.MyInstance.CastSkill(MyName);
     }
 }

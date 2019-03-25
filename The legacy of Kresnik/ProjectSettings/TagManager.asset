@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Hitbox
   - Obstacle
+  - Keybind
   layers:
   - Default
   - TransparentFX
