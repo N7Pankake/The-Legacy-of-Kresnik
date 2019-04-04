@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class BagButton : MonoBehaviour, IPointerClickHandler
 {
-    private Bag bag;
-
     [SerializeField]
     private Sprite full, empty;
+
+    private Bag bag;
 
     public Bag MyBag
     {
@@ -28,6 +28,22 @@ public class BagButton : MonoBehaviour, IPointerClickHandler
             }
 
             bag = value;
+        }
+    }
+
+    [SerializeField]
+    private int bagIndex;
+
+    public int MyBagIndex
+    {
+        get
+        {
+            return bagIndex;
+        }
+
+        set
+        {
+            bagIndex = value;
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
+public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler, IPointerExitHandler
 {
     private ObservableStack<Item> items = new ObservableStack<Item>();
 
@@ -146,11 +146,24 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         {
             if (InventoryScript.MyInstance.FromSlot == null && !IsEmpty)
             {
-                if (HandScript.MyInstance.MyMoveable != null && HandScript.MyInstance.MyMoveable is Bag)
+                if (HandScript.MyInstance.MyMoveable != null)
                 {
-                    if(MyItem is Bag)
+                    if (HandScript.MyInstance.MyMoveable is Bag)
                     {
-                        InventoryScript.MyInstance.SwapBags(HandScript.MyInstance.MyMoveable as Bag, MyItem as Bag);
+                        if (MyItem is Bag)
+                        {
+                            InventoryScript.MyInstance.SwapBags(HandScript.MyInstance.MyMoveable as Bag, MyItem as Bag);
+                        }
+                    }
+
+                    else if (HandScript.MyInstance.MyMoveable is Armor)
+                    {
+                        if (MyItem is Armor && (MyItem as Armor).MyArmorType == (HandScript.MyInstance.MyMoveable as Armor).MyArmorType)
+                        {
+                            (MyItem as Armor).Equip();
+                            //UIManager.MyInstance.RefreshTooltip();
+                            HandScript.MyInstance.Drop();
+                        }
                     }
                 }
 
@@ -161,16 +174,27 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
                 }
             }
 
-            else if (InventoryScript.MyInstance.FromSlot == null && IsEmpty && (HandScript.MyInstance.MyMoveable is Bag))
+            else if (InventoryScript.MyInstance.FromSlot == null && IsEmpty)
             {
-                Bag bag = (Bag)HandScript.MyInstance.MyMoveable;
-                
-                if (bag.MyBagScript != MyBag && InventoryScript.MyInstance.MyEmptySlotCount - bag.Slots > 0)
+                if ((HandScript.MyInstance.MyMoveable is Bag))
                 {
-                    AddItem(bag);
-                    bag.MyBagButton.RemoveBag();
+                    Bag bag = (Bag)HandScript.MyInstance.MyMoveable;
+
+                    if (bag.MyBagScript != MyBag && InventoryScript.MyInstance.MyEmptySlotCount - bag.Slots > 0)
+                    {
+                        AddItem(bag);
+                        bag.MyBagButton.RemoveBag();
+                        HandScript.MyInstance.Drop();
+                    }
+                }
+                if ((HandScript.MyInstance.MyMoveable is Armor))
+                {
+                    Armor armor = (Armor)HandScript.MyInstance.MyMoveable;
+                    AddItem(armor);
+                    CharacterPanel.MyInstance.MySelectedButton.DequipArmor();
                     HandScript.MyInstance.Drop();
                 }
+
             }
 
             else if (InventoryScript.MyInstance.FromSlot != null)
@@ -183,7 +207,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
             }
         }
 
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && HandScript.MyInstance.MyMoveable == null)
         {
             UseItem();
         }
@@ -194,6 +218,11 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         if(MyItem is IUseable)
         {
             (MyItem as IUseable).Use();
+        }
+
+        else if (MyItem is Armor)
+        {
+            (MyItem as Armor).Equip();
         }
     }
 
@@ -265,5 +294,18 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     private void UpdateSlot()
     {
         UIManager.MyInstance.UpdateStackSize(this);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(!IsEmpty)
+        {
+            UIManager.MyInstance.ShowToolTip(new Vector2(1,0),transform.position, MyItem);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIManager.MyInstance.HideToolTip();
     }
 }

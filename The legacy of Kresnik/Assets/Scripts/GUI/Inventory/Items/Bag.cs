@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Bag", menuName = "Items/Bag", order = 1)]
+[CreateAssetMenu(fileName = "Bag", menuName = "Items/Bag", order = 0)]
 public class Bag : Item, IUseable
 {
-
+    [SerializeField]
     private int slots;
 
     [SerializeField]
@@ -47,5 +47,10 @@ public class Bag : Item, IUseable
                 InventoryScript.MyInstance.AddBag(this, MyBagButton);
             }
         }
+    }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\n{0} slot bag", slots);
     }
 }

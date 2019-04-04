@@ -21,28 +21,40 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private ActionButton[] actionButtons;
-
-    [SerializeField]
-    private GameObject targetFrame;
-
-    private Stat healthStat;
-
-    [SerializeField]
-    private Image face;
-
-    [SerializeField]
+   [SerializeField]
     private CanvasGroup keybindMenu;
 
     [SerializeField]
     private CanvasGroup skillBook;
+
+    [SerializeField]
+    private CharacterPanel charPanel;
+
+    [SerializeField]
+    private GameObject tooltip;
+
+    private Text tooltipText;
+
+    [SerializeField]
+    private RectTransform tooltipRect;
+
+    [SerializeField]
+    private GameObject targetFrame;
+
+   [SerializeField]
+    private Image face;
+
+    [SerializeField]
+    private ActionButton[] actionButtons;
+    
+    private Stat healthStat;
 
     private GameObject[] keybindButtons;
 
     private void Awake()
     {
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+        tooltipText = tooltip.GetComponentInChildren<Text>();
     }
 
     // Start is called before the first frame update
@@ -54,7 +66,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             OpenClose(keybindMenu);
         }
@@ -67,6 +79,17 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryScript.MyInstance.OpenClose();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            charPanel.OpenClose();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Player.MyInstance.MyMana.MyCurrentValue -= 5;
+            Player.MyInstance.MyHealth.MyCurrentValue -= 10;
         }
     }
 
@@ -130,5 +153,23 @@ public class UIManager : MonoBehaviour
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public void ShowToolTip(Vector2 pivot,Vector3 position, IDescribable description)
+    {
+        tooltipRect.pivot = pivot;
+        tooltip.SetActive(true);
+        tooltip.transform.position = position;
+        tooltipText.text = description.GetDescription();
+    }
+
+    public void HideToolTip()
+    {
+        tooltip.SetActive(false);
+    }
+
+    public void RefreshTooltip(IDescribable description)
+    {
+        tooltipText.text = description.GetDescription();
     }
 }

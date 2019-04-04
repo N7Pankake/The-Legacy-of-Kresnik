@@ -8,6 +8,7 @@ TagManager:
   - Hitbox
   - Obstacle
   - Keybind
+  - Interactable
   layers:
   - Default
   - TransparentFX

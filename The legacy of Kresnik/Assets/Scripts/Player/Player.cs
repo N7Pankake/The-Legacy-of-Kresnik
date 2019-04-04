@@ -18,10 +18,17 @@ public class Player : Character
         }
     }
 
+    private IInteractable interactable;
+
     //Player Mana
     [SerializeField]
     private Stat mana;
     private float initMana = 50;
+
+    public Stat MyMana
+    {
+        get { return mana; }
+    }
 
     //Block skills if I can't see the Target
     [SerializeField]
@@ -39,7 +46,6 @@ public class Player : Character
     //Game Limits
     private Vector3 min, max;
 
-    
     protected override void Start()
     {
         mana.Initialize(initMana, initMana);
@@ -197,5 +203,45 @@ public class Player : Character
     {
         this.min = min;
         this.max = max;
+    }
+
+    public IEnumerator Regen(int regenTime, int healAmount)
+    {
+        if (IsAlive)
+        {
+            for (int i = 0; i < regenTime; ++i)
+            {
+                Player.MyInstance.MyHealth.MyCurrentValue += healAmount;
+                yield return new WaitForSeconds(1);
+            }
+        }
+    }
+
+    public void Interact()
+    {
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "Interactable")
+        {
+            interactable = collision.GetComponent<IInteractable>();
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "Interactable")
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract();
+                interactable = null;
+            }
+        }
     }
 }

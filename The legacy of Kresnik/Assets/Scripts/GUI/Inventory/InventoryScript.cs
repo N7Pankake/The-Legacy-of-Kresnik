@@ -103,8 +103,23 @@ public class InventoryScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            HealthPotion potion = (HealthPotion)Instantiate(items[1]);
-            AddItem(potion);
+            Armor armorA = (Armor)Instantiate(items[1]);
+            Armor armorP = (Armor)Instantiate(items[2]);
+            Armor armorB = (Armor)Instantiate(items[3]);
+            Armor armorE = (Armor)Instantiate(items[4]);
+            Armor armorG = (Armor)Instantiate(items[5]);
+            Armor armorC = (Armor)Instantiate(items[6]);
+            Armor armorS = (Armor)Instantiate(items[7]);
+            Item regenP = (Item)Instantiate(items[8]);
+            AddItem(armorS);
+            AddItem(armorA);
+            AddItem(armorP);
+            AddItem(armorB);
+            AddItem(armorE);
+            AddItem(armorG);
+            AddItem(armorC);
+            AddItem(regenP);
+
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -124,6 +139,7 @@ public class InventoryScript : MonoBehaviour
                 bagButton.MyBag = bag;
                 bags.Add(bag);
                 bag.MyBagButton = bagButton;
+                bag.MyBagScript.transform.SetSiblingIndex(bagButton.MyBagIndex);
                 break;
             }
         }
@@ -133,6 +149,7 @@ public class InventoryScript : MonoBehaviour
     {
         bags.Add(bag);
         bagButton.MyBag = bag;
+        bag.MyBagScript.transform.SetSiblingIndex(bagButton.MyBagIndex);
     }
 
     public void RemoveBag(Bag bag)
@@ -171,29 +188,29 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
         if(item.MyStackSize > 0)
         {
             if(PlaceInStack(item))
             {
-                return;
+                return true;
             }
         }
-
-        PlaceInEmpty(item);
+       return PlaceInEmpty(item);
     }
 
-    private void PlaceInEmpty(Item item)
+    private bool PlaceInEmpty(Item item)
     {
         foreach (Bag bag in bags)
         {
             if(bag.MyBagScript.AddItem(item))
             {
                 OnItemCountChanged(item);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     private bool PlaceInStack(Item item)

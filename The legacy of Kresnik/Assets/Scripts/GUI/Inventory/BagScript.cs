@@ -96,4 +96,12 @@ public class BagScript : MonoBehaviour
         canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
     }
 
+    public void Clear()
+    {
+        foreach (SlotScript slot in slots)
+        {
+            slot.Clear();
+        }
+    }
+
 }

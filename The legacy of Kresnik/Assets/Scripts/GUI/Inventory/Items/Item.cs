@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : ScriptableObject, IMoveable
+public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
     [SerializeField]
     private Sprite icon;
 
     [SerializeField]
     private int stackSize;
+
+    [SerializeField]
+    private string title;
+
+    [SerializeField]
+    private Quality quality;
+
+    public CharacterButton MyCharacterButton { get; set; }
 
     private SlotScript slot;
 
@@ -41,11 +49,33 @@ public abstract class Item : ScriptableObject, IMoveable
         }
     }
 
+    public Quality MyQuality
+    {
+        get
+        {
+            return quality;
+        }
+    }
+
+    public string MyTitle
+    {
+        get
+        {
+            return title;
+        }
+    }
+
+    public virtual string GetDescription()
+    {
+        return string.Format("<color={0}>{1}</color>", QualityColor.MyColors[MyQuality], MyTitle);
+    }
+
     public void Remove()
     {
         if(MySlot != null)
         {
             MySlot.RemoveItem(this);
+            MySlot = null;
         }
     }
 }
