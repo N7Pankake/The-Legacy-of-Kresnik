@@ -74,9 +74,9 @@ public class HandScript : MonoBehaviour
                 item.MySlot.Clear();
             }
             
-            else if (item.MyCharacterButton != null)
+            else if (item.MyCharButton != null)
             {
-                item.MyCharacterButton.DequipArmor();
+                item.MyCharButton.DequipArmor();
             }
         }
 

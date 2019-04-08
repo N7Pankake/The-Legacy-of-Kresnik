@@ -36,7 +36,7 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         icon.sprite = armor.MyIcon;
         icon.color = Color.white;
         this.equippedArmor = armor;
-        this.equippedArmor.MyCharacterButton = this;
+        this.equippedArmor.MyCharButton = this;
 
         if (HandScript.MyInstance.MyMoveable == (armor as IMoveable))
         {
@@ -71,7 +71,7 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         if (equippedArmor != null)
         {
-            UIManager.MyInstance.ShowToolTip(new Vector2(0,0),transform.position, equippedArmor);
+            UIManager.MyInstance.ShowTooltip(new Vector2(0,0),transform.position, equippedArmor);
         }
     }
 
@@ -85,7 +85,7 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         icon.color = Color.white;
         icon.enabled = false;
 
-        equippedArmor.MyCharacterButton = null;
+        equippedArmor.MyCharButton = null;
         equippedArmor = null;
     }
 }

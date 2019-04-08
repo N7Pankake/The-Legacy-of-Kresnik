@@ -16,4 +16,5 @@ MonoBehaviour:
   stackSize: 5
   title: Mana potion
   quality: 0
+  price: 25
   mana: 5

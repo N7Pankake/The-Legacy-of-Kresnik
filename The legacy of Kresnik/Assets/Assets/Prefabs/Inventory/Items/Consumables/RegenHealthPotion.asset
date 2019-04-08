@@ -16,5 +16,6 @@ MonoBehaviour:
   stackSize: 5
   title: Hp regen potion
   quality: 2
+  price: 15
   health: 10
   regenTime: 5
