@@ -104,21 +104,23 @@ public class InventoryScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Armor armorA = (Armor)Instantiate(items[1]);
-            Armor armorP = (Armor)Instantiate(items[2]);
-            Armor armorB = (Armor)Instantiate(items[3]);
-            Armor armorE = (Armor)Instantiate(items[4]);
-            Armor armorG = (Armor)Instantiate(items[5]);
-            Armor armorC = (Armor)Instantiate(items[6]);
-            Armor armorS = (Armor)Instantiate(items[7]);
-            Item regenP = (Item)Instantiate(items[8]);
-            AddItem(armorS);
+            Armor armorB = (Armor)Instantiate(items[2]);
+            Armor armorC = (Armor)Instantiate(items[3]);
+            Armor armorD = (Armor)Instantiate(items[4]);
+            Armor armorE = (Armor)Instantiate(items[5]);
+            Armor armorF = (Armor)Instantiate(items[6]);
+            Item HpP = (Item)Instantiate(items[7]);
+            Item MpP = (Item)Instantiate(items[8]);
+            Item speedP = (Item)Instantiate(items[9]);
             AddItem(armorA);
-            AddItem(armorP);
             AddItem(armorB);
-            AddItem(armorE);
-            AddItem(armorG);
             AddItem(armorC);
-            AddItem(regenP);
+            AddItem(armorD);
+            AddItem(armorE);
+            AddItem(armorF);
+            AddItem(HpP);
+            AddItem(MpP);
+            AddItem(speedP);
 
         }
 
@@ -261,6 +263,51 @@ public class InventoryScript : MonoBehaviour
         }
 
         return useables;
+    }
+
+    public int GetItemCount(string type)
+    {
+        int itemCount = 0;
+
+        foreach (Bag bag in bags)
+        {
+            foreach (SlotScript slot in bag.MyBagScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+                {
+                    itemCount += slot.MyItems.Count; 
+                }
+            }
+        }
+
+        return itemCount;
+    }
+
+    public Stack<Item> GetItems(string type, int count)
+    {
+        Stack<Item> items = new Stack<Item>();
+
+        foreach (Bag bag in bags)
+        {
+            foreach (SlotScript slot in bag.MyBagScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+                {
+                    foreach(Item item in slot.MyItems)
+                    {
+                        
+                        items.Push(item);
+
+                        if (items.Count == count)
+                        {
+                            return items;
+                        }
+                    }
+                }
+            }
+        }
+
+        return items;
     }
 
     public void OnItemCountChanged(Item item)

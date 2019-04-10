@@ -5,7 +5,7 @@ using UnityEngine;
 
 enum GearType {Helmet, Necklace, Armor, Gloves, Pants, Boots, Ring, Sword, TwoHand, Skillbook, Shield}
 
-[CreateAssetMenu(fileName = "Gear", menuName = "Items/Gear", order = 4)]
+[CreateAssetMenu(fileName = "Gear", menuName = "Items/Gear", order = 7)]
 public class Armor : Item
 {
     private Quality itemQuality;
@@ -32,21 +32,23 @@ public class Armor : Item
 
     public override string GetDescription()
     {
+        itemQuality = MyQuality;
+
         string stats = string.Empty;
 
         if(intellect > 0)
         {
-            stats += string.Format("\n +{0} intellect", intellect);
+            stats += string.Format("\n<color=#0000FF> +{0} intellect</color>", intellect);
         }
 
         if (strength > 0)
         {
-            stats += string.Format("\n +{0} strength", strength);
+            stats += string.Format("\n<color=#FF0000> +{0} strength</color>", strength);
         }
 
         if (vitality > 0)
         {
-            stats += string.Format("\n +{0} vitality", vitality);
+            stats += string.Format("\n<color=#00FF00> +{0} vitality</color>", vitality);
         }
 
         if ((vitality & intellect & strength) == 0)

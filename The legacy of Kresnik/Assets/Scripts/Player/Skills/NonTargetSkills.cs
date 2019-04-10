@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class NonTargetSkills : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
-    
     private Rigidbody2D myRigidBody;
 
     // Use this for initialization
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        if (Player.MyInstance.upD)
+        {
+            myRigidBody.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        }
 
-    }
+        else if (Player.MyInstance.downD)
+        {
+            myRigidBody.AddForce(new Vector2(0, -10), ForceMode2D.Impulse);
+        }
 
-    private void FixedUpdate()
-    {
+        else if (Player.MyInstance.leftD)
+        {
+            myRigidBody.AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+        }
 
-        myRigidBody.velocity = transform.forward * speed;
-
+        else if (Player.MyInstance.rightD)
+        {
+            myRigidBody.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
+        }
     }
 }

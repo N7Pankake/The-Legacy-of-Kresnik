@@ -7,6 +7,16 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
 
+    [SerializeField]
+    private string type;
+    public string MyType
+    {
+        get
+        {
+            return type;
+        }
+    }
+
     //Character Health
     [SerializeField]
     protected Stat health;
@@ -66,7 +76,7 @@ public abstract class Character : MonoBehaviour {
         }
     }
 
-    public float Speed
+    public float MySpeed
     {
         get
         {
@@ -83,7 +93,7 @@ public abstract class Character : MonoBehaviour {
     {
         get
         {
-         return health.MyCurrentValue > 0;
+            return health.MyCurrentValue > 0;
         }
     }
 
@@ -160,11 +170,20 @@ public abstract class Character : MonoBehaviour {
     {
         health.MyCurrentValue -= damage;
 
+        CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), SCTType.Damage, false);
+
         if (health.MyCurrentValue <= 0)
         {
             Direction = Vector2.zero;
             myRigidBody.velocity = Direction;
+            GameManager.MyInstance.OnKillConfirmed(this);
             MyAnimator.SetTrigger("die");
         }
+    }
+
+    public void GetHealth(int health)
+    {
+        MyHealth.MyCurrentValue += health;
+        CombatTextManager.MyInstance.CreateText(transform.position, health.ToString(), SCTType.Heal, true);
     }
 }

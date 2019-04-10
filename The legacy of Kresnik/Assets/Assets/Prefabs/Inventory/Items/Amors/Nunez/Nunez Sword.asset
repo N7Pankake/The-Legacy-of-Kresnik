@@ -16,7 +16,8 @@ MonoBehaviour:
   stackSize: 0
   title: Excalliburhir Dagorhireana
   quality: 5
-  armorType: 8
+  price: 0
+  armorType: 7
   intellect: 0
   strength: 0
   vitality: 0

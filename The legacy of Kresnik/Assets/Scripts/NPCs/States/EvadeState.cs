@@ -20,7 +20,7 @@ public class EvadeState : IState
     public void Update()
     {
         parent.Direction = (parent.MyStartPosition - parent.transform.position).normalized;
-        parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.MyStartPosition, parent.Speed * Time.deltaTime);
+        parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.MyStartPosition, parent.MySpeed * Time.deltaTime);
         float distance = Vector2.Distance(parent.MyStartPosition, parent.transform.position);
 
         if(distance <= 0)

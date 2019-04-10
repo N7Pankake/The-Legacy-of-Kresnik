@@ -18,6 +18,12 @@ public class Player : Character
         }
     }
 
+    // Prototype Direction for Non Target Skill see if it works
+    public bool upD = false;
+    public bool downD = true;
+    public bool leftD = false;
+    public bool rightD = false;
+
     private IInteractable interactable;
 
     public IInteractable MyInteractable
@@ -33,6 +39,7 @@ public class Player : Character
         }
     }
 
+    //PlayerStats
     //Player Mana
     [SerializeField]
     private Stat mana;
@@ -87,24 +94,44 @@ public class Player : Character
         {
             Direction += Vector2.up;
             exitIndex = 0;
+
+            upD = true;
+            downD = false;
+            leftD = false;
+            rightD = false;
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Left"]))
         {
             Direction += Vector2.left;
             exitIndex = 3;
+
+            upD = false;
+            downD = false;
+            leftD = true;
+            rightD = false;
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Down"]))
         {
             Direction += Vector2.down;
             exitIndex = 2;
+
+            upD = false;
+            downD = true;
+            leftD = false;
+            rightD = false;
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Right"]))
         {
             Direction += Vector2.right;
             exitIndex = 1;
+
+            upD = false;
+            downD = false;
+            leftD = false;
+            rightD = true;
         }
 
         if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]))
@@ -221,15 +248,50 @@ public class Player : Character
         this.max = max;
     }
 
-    public IEnumerator Regen(int regenTime, int healAmount)
+    public IEnumerator RegenHP(int regenTime, int health)
     {
         if (IsAlive)
         {
             for (int i = 0; i < regenTime; ++i)
             {
-                Player.MyInstance.MyHealth.MyCurrentValue += healAmount;
+                Player.MyInstance.MyHealth.MyCurrentValue += health;
                 yield return new WaitForSeconds(1);
             }
+        }
+    }
+
+    public IEnumerator RegenMP(int regenTime, int mana)
+    {
+        if (IsAlive)
+        {
+            for (int i = 0; i < regenTime; ++i)
+            {
+                Player.MyInstance.MyMana.MyCurrentValue += mana;
+                yield return new WaitForSeconds(1);
+            }
+        }
+    }
+
+    public IEnumerator RegenAll(int regenTime, int mana, int health)
+    {
+        if (IsAlive)
+        {
+            for (int i = 0; i < regenTime; ++i)
+            {
+                Player.MyInstance.MyHealth.MyCurrentValue += health;
+                Player.MyInstance.MyMana.MyCurrentValue += mana;
+                yield return new WaitForSeconds(1);
+            }
+        }
+    }
+
+    public IEnumerator IncreaseSpeed(int speed, int time)
+    {
+        if (IsAlive)
+        {
+            Player.MyInstance.MySpeed += speed;
+            yield return new WaitForSeconds(time);
+            Player.MyInstance.MySpeed = 5;
         }
     }
 

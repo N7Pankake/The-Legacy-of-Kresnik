@@ -16,7 +16,8 @@ MonoBehaviour:
   stackSize: 0
   title: Coraza de la legion de Dagorhir
   quality: 4
+  price: 0
   armorType: 2
-  intellect: 0
-  strength: 0
-  vitality: 0
+  intellect: 5
+  strength: 5
+  vitality: 5

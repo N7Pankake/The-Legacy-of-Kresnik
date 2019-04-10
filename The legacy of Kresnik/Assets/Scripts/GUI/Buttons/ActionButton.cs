@@ -22,7 +22,14 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
         set
         {
-            MyUseable = value.Peek();
+            if (value.Count > 0)
+            {
+                MyUseable = value.Peek();
+            }
+            else
+            {
+                MyUseable = null;
+            }
             useables = value;
         }
     }
@@ -71,7 +78,6 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
@@ -85,11 +91,10 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
                 MyUseable.Use();
             }
 
-            if (MyUseables != null && MyUseables.Count > 0)
+            else if (MyUseables != null && MyUseables.Count > 0)
             {
                 MyUseables.Peek().Use();
             }
-
         }
     }
 

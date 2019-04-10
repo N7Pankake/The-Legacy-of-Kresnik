@@ -24,7 +24,7 @@ using UnityEngine;
         {
             parent.Direction = (parent.MyTarget.transform.position - parent.transform.position).normalized;
 
-            parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.MyTarget.position, parent.Speed * Time.deltaTime);
+            parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.MyTarget.position, parent.MySpeed * Time.deltaTime);
 
             float distance = Vector2.Distance(parent.MyTarget.position, parent.transform.position);
 

@@ -16,7 +16,8 @@ MonoBehaviour:
   stackSize: 0
   title: Espada mata demonios
   quality: 4
-  armorType: 8
+  price: 1395
+  armorType: 7
   intellect: 0
-  strength: 0
+  strength: 25
   vitality: 0

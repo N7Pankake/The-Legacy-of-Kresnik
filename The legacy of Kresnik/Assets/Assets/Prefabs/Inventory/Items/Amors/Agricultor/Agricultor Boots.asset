@@ -16,7 +16,8 @@ MonoBehaviour:
   stackSize: 0
   title: Botas pesadas de vieja
   quality: 3
+  price: 1500
   armorType: 5
   intellect: 0
-  strength: 0
-  vitality: 0
+  strength: 5
+  vitality: 15

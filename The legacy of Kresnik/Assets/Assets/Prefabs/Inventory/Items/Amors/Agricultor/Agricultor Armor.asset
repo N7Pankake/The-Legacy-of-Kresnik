@@ -16,8 +16,8 @@ MonoBehaviour:
   stackSize: 0
   title: Armadura protectore de viejas
   quality: 5
-  price: 0
+  price: 10000
   armorType: 2
-  intellect: 0
-  strength: 0
-  vitality: 0
+  intellect: 15
+  strength: 35
+  vitality: 25

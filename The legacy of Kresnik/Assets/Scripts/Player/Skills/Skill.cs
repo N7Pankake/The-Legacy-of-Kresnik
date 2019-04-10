@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 public enum Type { Void, Ice, Earth, Fire}
-public enum Effect { Damage, Heal, Regen, Dps, Stun, Homing}
+public enum Effect { Damage, Heal, Regen, Dps, Stun}
 
 [Serializable]
 public class  Skill : IUseable, IMoveable, IDescribable
@@ -150,11 +150,6 @@ public class  Skill : IUseable, IMoveable, IDescribable
         else if (effect == Effect.Stun)
         {
             return string.Format("<color={0}>{1}</color>\nCast time: {2} second(s)\n{3}\nthat stuns for {4} second(s)", color, name, castTime, description, damage);
-        }
-
-        else if (effect == Effect.Homing)
-        {
-            return string.Format("<color={0}>{1}</color>\nCast time: {2} second(s)\n{3}\nthat chases the enemy \nand deals {4} damage", color, name, castTime, description, damage);
         }
 
         return null;

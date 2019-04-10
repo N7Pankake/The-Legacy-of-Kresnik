@@ -49,8 +49,11 @@ TagManager:
   - name: Perspective
     uniqueID: 3420322187
     locked: 0
-  - name: Top
+  - name: TopLayer
     uniqueID: 282671577
+    locked: 0
+  - name: SCT
+    uniqueID: 3907238979
     locked: 0
   - name: UI
     uniqueID: 44273649

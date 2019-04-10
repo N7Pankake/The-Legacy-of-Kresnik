@@ -104,10 +104,14 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     public void Clear()
     {
-        if (items.Count > 0)
+        int initCount = MyItems.Count;
+
+        if (initCount > 0)
         {
-            InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
-            MyItems.Clear();
+            for (int i = 0; i < initCount; i++)
+            {
+                InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
+            }
         }
     }
 
@@ -161,7 +165,6 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                         if (MyItem is Armor && (MyItem as Armor).MyArmorType == (HandScript.MyInstance.MyMoveable as Armor).MyArmorType)
                         {
                             (MyItem as Armor).Equip();
-                            //UIManager.MyInstance.RefreshTooltip();
                             HandScript.MyInstance.Drop();
                         }
                     }
@@ -176,7 +179,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
             else if (InventoryScript.MyInstance.FromSlot == null && IsEmpty)
             {
-                if ((HandScript.MyInstance.MyMoveable is Bag))
+                if (HandScript.MyInstance.MyMoveable is Bag)
                 {
                     Bag bag = (Bag)HandScript.MyInstance.MyMoveable;
 
@@ -187,14 +190,13 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                         HandScript.MyInstance.Drop();
                     }
                 }
-                if ((HandScript.MyInstance.MyMoveable is Armor))
+                if (HandScript.MyInstance.MyMoveable is Armor)
                 {
-                    Armor armor = (Armor)HandScript.MyInstance.MyMoveable;
-                    AddItem(armor);
+                    Armor armor = (Armor)HandScript.MyInstance.MyMoveable;                    
                     CharacterPanel.MyInstance.MySelectedButton.DequipArmor();
+                    AddItem(armor);
                     HandScript.MyInstance.Drop();
                 }
-
             }
 
             else if (InventoryScript.MyInstance.FromSlot != null)
