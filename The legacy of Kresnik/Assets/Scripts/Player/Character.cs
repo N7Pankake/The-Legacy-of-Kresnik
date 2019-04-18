@@ -27,11 +27,26 @@ public abstract class Character : MonoBehaviour {
     }
 
     [SerializeField]
-    private float initHealth;
+    protected float initHealth;
 
     //Character Speed
     [SerializeField]
     private float speed;
+
+    [SerializeField]
+    private int level;
+    public int MyLevel
+    {
+        get
+        {
+            return level;
+        }
+
+        set
+        {
+            level = value;
+        }
+    }
 
     //Character Animation
     public Animator MyAnimator { get; set; }
@@ -102,7 +117,6 @@ public abstract class Character : MonoBehaviour {
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         MyAnimator = GetComponent<Animator>();
-        health.Initialize(initHealth, initHealth);
     }
 	
 	// Update is called once per frame

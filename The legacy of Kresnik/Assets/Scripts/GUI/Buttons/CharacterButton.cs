@@ -13,19 +13,26 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
     private Image icon;
 
     private Armor equippedArmor;
-    
+    public Armor MyEquippedArmor
+    {
+        get
+        {
+            return equippedArmor;
+        }
+    }
+
     public void EquipArmor(Armor armor)
     {
         armor.Remove();
 
-        if (equippedArmor != null)
+        if (MyEquippedArmor != null)
         {
-            if (equippedArmor != armor)
+            if (MyEquippedArmor != armor)
             {
-                armor.MySlot.AddItem(equippedArmor);
+                armor.MySlot.AddItem(MyEquippedArmor);
             }
 
-            UIManager.MyInstance.RefreshTooltip(equippedArmor);
+            UIManager.MyInstance.RefreshTooltip(MyEquippedArmor);
         }
         else
         {
@@ -58,9 +65,9 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
             UIManager.MyInstance.RefreshTooltip(tmp);
         }
-        else if (HandScript.MyInstance.MyMoveable == null && equippedArmor != null)
+        else if (HandScript.MyInstance.MyMoveable == null && MyEquippedArmor != null)
         {
-            HandScript.MyInstance.TakeMoveable(equippedArmor);
+            HandScript.MyInstance.TakeMoveable(MyEquippedArmor);
             CharacterPanel.MyInstance.MySelectedButton = this;
             icon.color = Color.grey;
         }
@@ -69,9 +76,9 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (equippedArmor != null)
+        if (MyEquippedArmor != null)
         {
-            UIManager.MyInstance.ShowTooltip(new Vector2(0,0),transform.position, equippedArmor);
+            UIManager.MyInstance.ShowTooltip(new Vector2(0,0),transform.position, MyEquippedArmor);
         }
     }
 

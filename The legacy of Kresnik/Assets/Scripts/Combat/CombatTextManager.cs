@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SCTType { Damage, Heal}
+public enum SCTType { Damage, Heal, XP}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -32,21 +32,25 @@ public class CombatTextManager : MonoBehaviour
          Text sct = Instantiate(combatTextPrefab, transform).GetComponent<Text>();
          sct.transform.position = position;
 
-        string operation = string.Empty;
-
+        string before = string.Empty;
+        string after = string.Empty;
         switch (type)
         {
             case SCTType.Damage:
-                operation += "-";
+                before += "-";
                 sct.color = Color.red;
                 break;
             case SCTType.Heal:
-                operation += "+";
+                before += "+";
                 sct.color = Color.green;
+                break;
+            case SCTType.XP:
+                before += "+";
+                sct.color = Color.yellow;
                 break;
         }
 
-        sct.text = operation + text;
+        sct.text = before + text + after;
 
         if (crit)
         {

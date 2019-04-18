@@ -50,7 +50,7 @@ public class QuestGiverWindow : Window
             if(quest != null)
             {
                 GameObject go = Instantiate(questPrefab, questArea);
-                go.GetComponent<Text>().text = quest.MyTitle;
+                go.GetComponent<Text>().text = "<size=35>[" + quest.MyLevel+ "] " + quest.MyTitle + "<color=#ffbb04> !</color></size>";
 
                 go.GetComponent<QGQScript>().MyQuest = quest;
 
@@ -58,14 +58,16 @@ public class QuestGiverWindow : Window
 
                 if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
                 {
-                    go.GetComponent<Text>().text += "(C)";
+                    go.GetComponent<Text>().text = "<size=35>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#FFFF00> ?</color></size>";
                 }
 
                 if (QuestLog.MyInstance.HasQuest(quest))
                 {
                     Color color = go.GetComponent<Text>().color;
                     color.a = 0.5f;
+
                     go.GetComponent<Text>().color = color;
+                    go.GetComponent<Text>().text = "<size=35>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#C0C0C0> ?</color></size>";
                 }
             }
         }
@@ -99,10 +101,15 @@ public class QuestGiverWindow : Window
   
         foreach (Objective obj in quest.MyCollectObjectives)
         {
-            objectives += obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
+            objectives += "<size=38>" + obj.MyType + "</size>: <size=30>" + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n </size>";
         }
 
-        questDescription.GetComponent<Text>().text = string.Format("<b>\n{0}\n\n<size=38>{1}</size></b>", quest.MyTitle, quest.MyDescription);
+        foreach (KillObjective obj in quest.MyKillObjectives)
+        {
+            objectives += "<size=38>" + obj.MyType + "</size>: <size=30>" + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n </size>";
+        }
+
+        questDescription.GetComponent<Text>().text = string.Format("\n<b>{0}</b>\n\n<size=35>{1}</size>\n\n{2}", quest.MyTitle, quest.MyDescription, objectives);
     }
 
     public void Back()
@@ -135,7 +142,9 @@ public class QuestGiverWindow : Window
             {
                 if (selectedQuest == questGiver.MyQuests[i])
                 {
+                    questGiver.MyCompletedQuest.Add(selectedQuest.MyTitle);
                     questGiver.MyQuests[i] = null;
+                    selectedQuest.MyQuestGiver.UpdateQuestStatus();
                 }
             }
 
@@ -149,6 +158,8 @@ public class QuestGiverWindow : Window
             {
                 GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(objective.UpdateKillCount);
             }
+
+            Player.MyInstance.GainXp(XPManager.CalculateXP(selectedQuest));
 
             QuestLog.MyInstance.RemoveQuest(selectedQuest.MyQuestScript);
             Back();

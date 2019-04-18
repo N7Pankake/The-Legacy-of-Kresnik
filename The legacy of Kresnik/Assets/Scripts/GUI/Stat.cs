@@ -13,7 +13,24 @@ public class Stat : MonoBehaviour {
     [SerializeField]
     private float lerpSpeed;
 
+    private float overflow;
+
+    public float MyOverflow
+    {
+        get
+        {
+            float tmp = overflow;
+            overflow = 0;
+            return tmp;
+        }
+    }
+
     private float currentFill;
+
+    public bool IsFull
+    {
+        get { return content.fillAmount == 1; }
+    }
 
     public float MyMaxValue { get; set; }
 
@@ -30,6 +47,7 @@ public class Stat : MonoBehaviour {
         {
             if(value > MyMaxValue)
             {
+                overflow = value - MyMaxValue;
                 currentValue = MyMaxValue;
             }
             else if (value < 0)
@@ -60,10 +78,9 @@ public class Stat : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
         if (currentFill != content.fillAmount)
         {
-            content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
+            content.fillAmount = Mathf.MoveTowards(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
         }
 	}
 
@@ -76,5 +93,10 @@ public class Stat : MonoBehaviour {
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
         content.fillAmount = MyCurrentValue / MyMaxValue;
+    }
+
+    public void Reset()
+    {
+        content.fillAmount = 0;
     }
 }

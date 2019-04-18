@@ -9,8 +9,9 @@ public class BagScript : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
-    private List<SlotScript> slots = new List<SlotScript>();
+    public int MyBagIndex { get; set; }
 
+    private List<SlotScript> slots = new List<SlotScript>();
     public List<SlotScript> MySlots
     {
         get
@@ -72,6 +73,7 @@ public class BagScript : MonoBehaviour
         for(int i = 0; i <slotCount; i++)
         {
             SlotScript slot = Instantiate(slotPrefab, transform).GetComponent<SlotScript>();
+            slot.MyIndex = i;
             slot.MyBag = this;
             MySlots.Add(slot);
         }

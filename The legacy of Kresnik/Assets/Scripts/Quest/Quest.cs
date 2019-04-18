@@ -36,6 +36,31 @@ public class Quest
     }
 
     [SerializeField]
+    private int level;
+    public int MyLevel
+    {
+        get
+        {
+            return level;
+        }
+
+        set
+        {
+            level = value;
+        }
+    }
+
+    [SerializeField]
+    private int xp;
+    public int MyXp
+    {
+        get
+        {
+            return xp;
+        }
+    }
+
+    [SerializeField]
     private CollectObjective[] collectObjectives;
     public CollectObjective[] MyCollectObjectives
     {
@@ -52,6 +77,11 @@ public class Quest
         get
         {
             return killObjectives;
+        }
+
+        set
+        {
+            killObjectives = value;
         }
     }
 

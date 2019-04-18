@@ -11,7 +11,7 @@ public class QuestScript : MonoBehaviour
 
     public void Select()
     {
-        GetComponent<Text>().color = Color.red;
+        GetComponent<Text>().color = Color.yellow;
         QuestLog.MyInstance.ShowDescription(MyQuest);
     }
 
@@ -25,13 +25,13 @@ public class QuestScript : MonoBehaviour
         if(MyQuest.IsComplete && !markedComplete)
         {
             markedComplete = true;
-            GetComponent<Text>().text += "(Complete)";
-            MessageFeedManager.MyInstance.WriteMessage(string.Format("{0} (Complete)", MyQuest.MyTitle));
+            GetComponent<Text>().text += " [" + MyQuest.MyLevel + "] " + MyQuest.MyTitle + "(C)";
+            MessageFeedManager.MyInstance.WriteMessage(string.Format("{0} (C)", MyQuest.MyTitle));
         }
         else if (!MyQuest.IsComplete)
         {
             markedComplete = false;
-            GetComponent<Text>().text = MyQuest.MyTitle;
+            GetComponent<Text>().text = " [" + MyQuest.MyLevel + "] " + MyQuest.MyTitle;
         }
     }
 }

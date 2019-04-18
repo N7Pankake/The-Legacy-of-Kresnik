@@ -21,6 +21,8 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     public BagScript MyBag { get; set; }
 
+    public int MyIndex { get; set; }
+
     [SerializeField]
     private Image icon;
 
@@ -183,7 +185,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                 {
                     Bag bag = (Bag)HandScript.MyInstance.MyMoveable;
 
-                    if (bag.MyBagScript != MyBag && InventoryScript.MyInstance.MyEmptySlotCount - bag.Slots > 0)
+                    if (bag.MyBagScript != MyBag && InventoryScript.MyInstance.MyEmptySlotCount - bag.MySlotCount > 0)
                     {
                         AddItem(bag);
                         bag.MyBagButton.RemoveBag();

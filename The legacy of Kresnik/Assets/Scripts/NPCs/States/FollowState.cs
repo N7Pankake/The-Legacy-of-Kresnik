@@ -10,6 +10,7 @@ using UnityEngine;
 
     public void Enter(Enemy parent)
     {
+        Player.MyInstance.AddAttacker(parent);
         this.parent = parent;
     }
 

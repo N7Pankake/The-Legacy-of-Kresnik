@@ -6,18 +6,19 @@ public class LootTable : MonoBehaviour
 {
     [SerializeField]
     private Loot[] loot;
-
-    private List<Item> droppedItems = new List<Item>();
+    
+    public List<Drop> MyDroppedItems { get; set; }
 
     private bool rolled = false;
 
-    public void ShowLoot()
+    public List<Drop> GetLoot()
     {
         if(!rolled)
         {
+            MyDroppedItems = new List<Drop>();
             RollLoot();
         }
-        LootWindow.MyInstance.CreatePages(droppedItems);
+        return MyDroppedItems;
     }
 
     private void RollLoot()
@@ -28,7 +29,7 @@ public class LootTable : MonoBehaviour
 
             if (roll <= item.MyDropChance)
             {
-                droppedItems.Add(item.MyItem);
+                MyDroppedItems.Add(new Drop(item.MyItem, this));
             }
         }
         rolled = true;

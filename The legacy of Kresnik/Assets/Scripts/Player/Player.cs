@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Character
 {
@@ -18,24 +19,32 @@ public class Player : Character
         }
     }
 
-    // Prototype Direction for Non Target Skill see if it works
-    public bool upD = false;
-    public bool downD = true;
-    public bool leftD = false;
-    public bool rightD = false;
+    private List<IInteractable> interactables = new List<IInteractable>();
 
-    private IInteractable interactable;
-
-    public IInteractable MyInteractable
+    public List<IInteractable> MyInteractables
     {
         get
         {
-            return interactable;
+            return interactables;
         }
 
         set
         {
-            interactable = value;
+            interactables = value;
+        }
+    }
+
+    private List<Enemy> attackers = new List<Enemy>();
+    public List<Enemy> MyAttackers
+    {
+        get
+        {
+            return attackers;
+        }
+
+        set
+        {
+            attackers = value;
         }
     }
 
@@ -48,7 +57,26 @@ public class Player : Character
     public Stat MyMana
     {
         get { return mana; }
+        set { mana = value; }
     }
+
+    [SerializeField]
+    private Stat xpStat;
+    public Stat MyXP
+    {
+        get
+        {
+            return xpStat;
+        }
+
+        set
+        {
+            xpStat = value;
+        }
+    }
+
+    [SerializeField]
+    private Text levelText;
 
     public int MyGold { get; set; }
     
@@ -68,13 +96,12 @@ public class Player : Character
     //Game Limits
     private Vector3 min, max;
 
-    protected override void Start()
-    {
-        MyGold = 1000;
-        mana.Initialize(initMana, initMana);
+    // Prototype Direction for Non Target Skill see if it works
+    public bool upD = false;
+    public bool downD = true;
+    public bool leftD = false;
+    public bool rightD = false;
 
-        base.Start();
-    }
 	
 	// Update is called once per frame
 	protected override void Update ()
@@ -84,6 +111,16 @@ public class Player : Character
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, min.x, max.x), Mathf.Clamp(transform.position.y, min.y, max.y), transform.position.z);
 
             base.Update();
+    }
+
+    public void SetDefaults()
+    {
+        MyGold = 1000;
+
+        health.Initialize(initHealth, initHealth);
+        mana.Initialize(initMana, initMana);
+        MyXP.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        levelText.text = MyLevel.ToString();
     }
 
     private void GetInput()
@@ -212,6 +249,14 @@ public class Player : Character
         MyAnimator.SetTrigger("attack");
     }
 
+    public void AddAttacker(Enemy enemy)
+    {
+        if (!MyAttackers.Contains(enemy))
+        {
+            MyAttackers.Add(enemy);
+        }
+    }
+
     private void NonTargetSkill()
     {
         Instantiate (nonTargetSkill, exitPoints[exitIndex].position, exitPoints[exitIndex].rotation);  
@@ -295,19 +340,52 @@ public class Player : Character
         }
     }
 
-    public void Interact()
+    public void GainXp(int xp)
     {
-        if (MyInteractable != null)
+        MyXP.MyCurrentValue += xp;
+        CombatTextManager.MyInstance.CreateText(transform.position, xp.ToString(), SCTType.XP, false);
+
+        if(MyXP.MyCurrentValue >= MyXP.MyMaxValue)
         {
-            MyInteractable.Interact();
+            StartCoroutine(Ding());
         }
+    }
+
+    private IEnumerator Ding()
+    {
+        while (!MyXP.IsFull)
+        {
+            yield return null;
+        }
+
+        MyLevel++;
+        levelText.text = MyLevel.ToString();
+        MyXP.MyMaxValue = 100 * MyLevel * Mathf.Pow(MyLevel, 0.5f);
+        MyXP.MyMaxValue = Mathf.Floor(MyXP.MyMaxValue);
+        MyXP.MyCurrentValue = MyXP.MyOverflow;
+        MyXP.Reset();
+
+        if (MyXP.MyCurrentValue >= MyXP.MyMaxValue)
+        {
+            StartCoroutine(Ding());
+        }
+    }
+
+    public void UpdateLevel()
+    {
+        levelText.text = MyLevel.ToString();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            MyInteractable = collision.GetComponent<IInteractable>();
+            IInteractable interactable = collision.GetComponent<IInteractable>();
+
+            if(!MyInteractables.Contains(interactable))
+            {
+                MyInteractables.Add(interactable);
+            }
         }
     }
 
@@ -315,10 +393,16 @@ public class Player : Character
     {
         if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            if (MyInteractable != null)
+            if(MyInteractables.Count > 0)
             {
-                MyInteractable.StopInteract();
-                MyInteractable = null;
+                IInteractable interactable = MyInteractables.Find(x => x == collision.GetComponent<IInteractable>());
+
+                if(interactable != null)
+                {
+                    interactable.StopInteract();
+                }
+
+                MyInteractables.Remove(interactable);
             }
         }
     }
