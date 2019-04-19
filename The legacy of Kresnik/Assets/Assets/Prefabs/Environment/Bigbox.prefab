@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6706577377525323171}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0017634481, y: -0.18340747}
+  m_Offset: {x: 0.0027329475, y: -0.18680978}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4391965, y: 0.17466655}
+  m_Size: {x: 0.37909338, y: 0.16786194}
   m_EdgeRadius: 0
 --- !u!1 &6706577378997192283
 GameObject:
@@ -67,8 +67,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6706577378997192280}
   - component: {fileID: 6706577378997192281}
-  - component: {fileID: 6706577378997192282}
   - component: {fileID: 6706577378997192287}
+  - component: {fileID: 8549089000687215517}
   m_Layer: 0
   m_Name: Bigbox
   m_TagString: Obstacle
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300092, guid: d5d015b796401344e930ecba3c89a1c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,18 +139,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6706577378997192282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6706577378997192283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af57341609cf39041b59a3f9adc202f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &6706577378997192287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004251182, y: -0.008502305}
+  m_Offset: {x: 0.0015514344, y: -0.0072980523}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,5 +163,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4452253, y: 0.5217457}
+  m_Size: {x: 0.42980424, y: 0.5241542}
   m_EdgeRadius: 0
+--- !u!114 &8549089000687215517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706577378997192283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af57341609cf39041b59a3f9adc202f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

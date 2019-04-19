@@ -18,7 +18,13 @@ public class QuestGiver : NPC
     private Sprite question, questionSilver, exclamation;
 
     [SerializeField]
+    private Sprite miniquestion, miniQuestionSilver, miniExclamation;
+
+    [SerializeField]
     private SpriteRenderer statusRenderer;
+
+    [SerializeField]
+    private SpriteRenderer minimapRenderer;
 
     [SerializeField]
     private int questGiverID;
@@ -74,28 +80,30 @@ public class QuestGiver : NPC
                 if (quest.IsComplete && QuestLog.MyInstance.HasQuest(quest))
                 {
                     statusRenderer.sprite = question;
+                    minimapRenderer.sprite = miniquestion;
                     break;
                 }
 
                 else if (!QuestLog.MyInstance.HasQuest(quest))
                 {
                     statusRenderer.sprite = exclamation;
+                    minimapRenderer.sprite = miniExclamation;
                     break;
                 }
 
                 else if (!quest.IsComplete && QuestLog.MyInstance.HasQuest(quest))
                 {
                     statusRenderer.sprite = questionSilver;
-                    break;
+                    minimapRenderer.sprite = miniQuestionSilver;
                 }
-                else
+            }
+            else
+            {
+                count++;
+                if (count == quests.Length)
                 {
-                    count++;
-
-                    if(count == quests.Length)
-                    {
-                        statusRenderer.enabled = false;
-                    }
+                    statusRenderer.enabled = false;
+                    minimapRenderer.enabled = false;
                 }
             }
         }

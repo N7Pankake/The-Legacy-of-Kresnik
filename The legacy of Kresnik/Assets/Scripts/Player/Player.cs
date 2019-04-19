@@ -89,19 +89,11 @@ public class Player : Character
     private Transform[] exitPoints;
     private int exitIndex = 2;
 
-    //A default basic attack that doesn't follow targets
-    [SerializeField]
-    private GameObject nonTargetSkill;
-
     //Game Limits
     private Vector3 min, max;
 
-    // Prototype Direction for Non Target Skill see if it works
-    public bool upD = false;
-    public bool downD = true;
-    public bool leftD = false;
-    public bool rightD = false;
-
+    [SerializeField]
+    private Transform minimapIndicator;
 	
 	// Update is called once per frame
 	protected override void Update ()
@@ -131,54 +123,39 @@ public class Player : Character
         {
             Direction += Vector2.up;
             exitIndex = 0;
-
-            upD = true;
-            downD = false;
-            leftD = false;
-            rightD = false;
+            minimapIndicator.eulerAngles = new Vector3(0, 0, -45);
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Left"]))
         {
             Direction += Vector2.left;
             exitIndex = 3;
-
-            upD = false;
-            downD = false;
-            leftD = true;
-            rightD = false;
+            if(Direction.y == 0)
+            {
+                minimapIndicator.eulerAngles = new Vector3(0, 0, 45);
+            }
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Down"]))
         {
             Direction += Vector2.down;
             exitIndex = 2;
-
-            upD = false;
-            downD = true;
-            leftD = false;
-            rightD = false;
+            minimapIndicator.eulerAngles = new Vector3(0, 0, 135);
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Right"]))
         {
             Direction += Vector2.right;
             exitIndex = 1;
-
-            upD = false;
-            downD = false;
-            leftD = false;
-            rightD = true;
+            if (Direction.y == 0)
+            {
+                minimapIndicator.eulerAngles = new Vector3(0, 0, -135);
+            }
         }
 
         if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]))
         {
             Attack();
-        }
-
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Default"]))
-        {
-            NonTargetSkill();
         }
         
         if(IsMoving)
@@ -256,12 +233,6 @@ public class Player : Character
             MyAttackers.Add(enemy);
         }
     }
-
-    private void NonTargetSkill()
-    {
-        Instantiate (nonTargetSkill, exitPoints[exitIndex].position, exitPoints[exitIndex].rotation);  
-    }
-
 
     private void Block()
     {

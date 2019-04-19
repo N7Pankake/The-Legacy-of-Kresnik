@@ -69,11 +69,14 @@ public class GameManager : MonoBehaviour
         else if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
-            IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
-
-            if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity))
+            if (hit.collider != null)
             {
-                entity.Interact();
+                IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
+
+                if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity))
+                {
+                    entity.Interact();
+                }
             }
         }
     }
@@ -85,10 +88,18 @@ public class GameManager : MonoBehaviour
             DeSelectTarget();
             if (Player.MyInstance.MyAttackers.Count > 0)
             {
-                SelectTarget(Player.MyInstance.MyAttackers[targetIndex]);
-                targetIndex++;
+                if (targetIndex < Player.MyInstance.MyAttackers.Count)
+                {
+                    SelectTarget(Player.MyInstance.MyAttackers[targetIndex]);
+                    targetIndex++;
 
-                if (targetIndex >= Player.MyInstance.MyAttackers.Count)
+                    if (targetIndex >= Player.MyInstance.MyAttackers.Count)
+                    {
+                        targetIndex = 0;
+                    }
+                }
+
+                else
                 {
                     targetIndex = 0;
                 }

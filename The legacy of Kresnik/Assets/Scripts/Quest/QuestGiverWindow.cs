@@ -61,7 +61,7 @@ public class QuestGiverWindow : Window
                     go.GetComponent<Text>().text = "<size=35>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#FFFF00> ?</color></size>";
                 }
 
-                if (QuestLog.MyInstance.HasQuest(quest))
+                else if (QuestLog.MyInstance.HasQuest(quest))
                 {
                     Color color = go.GetComponent<Text>().color;
                     color.a = 0.5f;
