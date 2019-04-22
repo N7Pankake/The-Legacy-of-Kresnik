@@ -32,7 +32,7 @@ public abstract class Character : MonoBehaviour {
     //Character Speed
     [SerializeField]
     private float speed;
-
+    
     [SerializeField]
     private int level;
     public int MyLevel
@@ -161,16 +161,15 @@ public abstract class Character : MonoBehaviour {
             }
             else
             {
-                //Change the layer back to Idle when we are not pressing Keys.
                 ActivateLayer("IdleLayer");
             }
         }
         else
-        {
+        {   // Not added yet.
             ActivateLayer("DeathLayer");
         }
     }
-
+  
     public void ActivateLayer(string layerName)
     {
         for (int i = 0; i < MyAnimator.layerCount; i++)

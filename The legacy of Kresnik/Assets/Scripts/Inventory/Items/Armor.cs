@@ -8,6 +8,20 @@ enum GearType {Helmet, Necklace, Armor, Gloves, Pants, Boots, Ring, Sword, TwoHa
 [CreateAssetMenu(fileName = "Gear", menuName = "Items/Gear", order = 7)]
 public class Armor : Item
 {
+    private static Armor instance;
+
+    public static Armor MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Armor>();
+            }
+            return instance;
+        }
+    }
+
     private Quality itemQuality;
 
     [SerializeField]
@@ -23,12 +37,33 @@ public class Armor : Item
 
     [SerializeField]
     private int intellect;
+    public int MyIntellect
+    {
+        get
+        {
+            return intellect;
+        }
+    }
 
     [SerializeField]
     private int strength;
+    public int MyStrength
+    {
+        get
+        {
+            return strength;
+        }
+    }
 
     [SerializeField]
     private int vitality;
+    public int MyVitality
+    {
+        get
+        {
+            return vitality;
+        }
+    }
 
     public override string GetDescription()
     {
@@ -36,22 +71,22 @@ public class Armor : Item
 
         string stats = string.Empty;
 
-        if(intellect > 0)
+        if(MyIntellect > 0)
         {
-            stats += string.Format("\n<color=#0000FF> +{0} intellect</color>", intellect);
+            stats += string.Format("\n<color=#0000FF> +{0} intellect</color>", MyIntellect);
         }
 
-        if (strength > 0)
+        if (MyStrength > 0)
         {
-            stats += string.Format("\n<color=#FF0000> +{0} strength</color>", strength);
+            stats += string.Format("\n<color=#FF0000> +{0} strength</color>", MyStrength);
         }
 
-        if (vitality > 0)
+        if (MyVitality > 0)
         {
-            stats += string.Format("\n<color=#00FF00> +{0} vitality</color>", vitality);
+            stats += string.Format("\n<color=#00FF00> +{0} vitality</color>", MyVitality);
         }
 
-        if ((vitality & intellect & strength) == 0)
+        if ((MyVitality & MyIntellect & MyStrength) == 0)
         {
             return base.GetDescription() + string.Format("\n{0} {1} ", itemQuality, MyArmorType);
         }
@@ -65,5 +100,18 @@ public class Armor : Item
     public void Equip()
     {
         CharacterPanel.MyInstance.EquipArmor(this);
+
+        float myOldManaValues = Player.MyInstance.MyMana.MyCurrentValue;
+        float myOldHealthValues = Player.MyInstance.MyHealth.MyCurrentValue;
+
+        float myNewManaValues = Player.MyInstance.MyMana.MyMaxValue += (MyIntellect * 10);
+        float myNewHealthValues = Player.MyInstance.MyHealth.MyMaxValue += (MyVitality * 10);
+
+        Player.MyInstance.MyMana.MyCurrentValue = Player.MyInstance.MyMana.MyMaxValue;
+        Player.MyInstance.MyMana.MyCurrentValue = myOldManaValues;
+        Player.MyInstance.MyHealth.MyCurrentValue = Player.MyInstance.MyHealth.MyMaxValue;
+        Player.MyInstance.MyHealth.MyCurrentValue = myOldHealthValues;
+
+        Player.MyInstance.MyAttackDamage += (MyStrength / 2);
     }
 }

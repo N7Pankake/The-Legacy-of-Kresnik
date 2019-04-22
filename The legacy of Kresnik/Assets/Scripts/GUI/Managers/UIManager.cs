@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
-
+    
     [SerializeField]
     private CanvasGroup pauseMenu;
 
@@ -53,6 +53,36 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Text levelText;
+
+    [SerializeField]
+    private Text currentGold;
+    public Text MyCurrentGold
+    {
+        get
+        {
+            return currentGold;
+        }
+
+        set
+        {
+            currentGold = value;
+        }
+    }
+
+    private int gold;
+    public int MyGold
+    {
+        get
+        {
+            return gold;
+        }
+
+        set
+        {
+            this.gold = value;
+            this.MyCurrentGold.text = value.ToString();
+        }
+    }
 
     [SerializeField]
     private Image face;

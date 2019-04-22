@@ -27,6 +27,13 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         if (MyEquippedArmor != null)
         {
+            Player.MyInstance.MyMana.MyMaxValue -= (Armor.MyInstance.MyIntellect * 10);
+            Player.MyInstance.MyHealth.MyMaxValue -= (Armor.MyInstance.MyVitality * 10);
+
+            Player.MyInstance.MyMana.MyCurrentValue = Player.MyInstance.MyMana.MyMaxValue;
+            Player.MyInstance.MyHealth.MyCurrentValue = Player.MyInstance.MyHealth.MyMaxValue;
+            Player.MyInstance.MyAttackDamage -= (Armor.MyInstance.MyStrength / 2);
+
             if (MyEquippedArmor != armor)
             {
                 armor.MySlot.AddItem(MyEquippedArmor);
@@ -94,5 +101,13 @@ public class CharacterButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         equippedArmor.MyCharButton = null;
         equippedArmor = null;
+
+        Player.MyInstance.MyMana.MyMaxValue -= (Armor.MyInstance.MyIntellect * 10);
+        Player.MyInstance.MyHealth.MyMaxValue -= (Armor.MyInstance.MyVitality * 10);
+
+        Player.MyInstance.MyMana.MyCurrentValue = Player.MyInstance.MyMana.MyMaxValue;
+        Player.MyInstance.MyHealth.MyCurrentValue = Player.MyInstance.MyHealth.MyMaxValue;
+
+        Player.MyInstance.MyAttackDamage -= (Armor.MyInstance.MyStrength / 2);
     }
 }

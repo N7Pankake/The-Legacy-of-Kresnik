@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Player player;
-
+    
     private Enemy currentTarget;
     private int targetIndex;
 

@@ -90,7 +90,6 @@ public class InventoryScript : MonoBehaviour
     [SerializeField]
     private BagButton[] bagButtons;
 
-    //Debugging
     [SerializeField]
     private Item[] items;
 
@@ -102,41 +101,36 @@ public class InventoryScript : MonoBehaviour
     private void Awake()
     {
         Bag bag = (Bag)Instantiate(items[0]);
-        bag.Initialize(16);
+        bag.Initialize(8);
         bag.Use();
     }
 
     private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Armor armorA = (Armor)Instantiate(items[1]);
-            Armor armorB = (Armor)Instantiate(items[2]);
-            Armor armorC = (Armor)Instantiate(items[3]);
-            Armor armorD = (Armor)Instantiate(items[4]);
-            Armor armorE = (Armor)Instantiate(items[5]);
-            Armor armorF = (Armor)Instantiate(items[6]);
-            Item HpP = (Item)Instantiate(items[7]);
-            Item MpP = (Item)Instantiate(items[8]);
-            Item speedP = (Item)Instantiate(items[9]);
-            AddItem(armorA);
-            AddItem(armorB);
-            AddItem(armorC);
-            AddItem(armorD);
-            AddItem(armorE);
-            AddItem(armorF);
-            AddItem(HpP);
-            AddItem(MpP);
-            AddItem(speedP);
+    {    /*DEBUGGING ONLY*/
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    Item a = (Item)Instantiate(items[1]);
+        //    Item HpP = (Item)Instantiate(items[7]);
+        //    Item MpP = (Item)Instantiate(items[8]);
+        //    Item speedP = (Item)Instantiate(items[9]);
+        //    Item HpPR = (Item)Instantiate(items[10]);
+        //    Item MpPR = (Item)Instantiate(items[11]);
+        //    Item regem = (Item)Instantiate(items[12]);
+        //    AddItem(a);
+        //    AddItem(HpP);
+        //    AddItem(MpP);
+        //    AddItem(speedP);
+        //    AddItem(HpPR);
+        //    AddItem(MpPR);
+        //    AddItem(regem);
+        //}
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Bag bag = (Bag)Instantiate(items[0]);
-            bag.Initialize(16);
-            AddItem(bag);
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Bag bag = (Bag)Instantiate(items[0]);
+        //    bag.Initialize(16);
+        //    AddItem(bag);
+        //}
     }
 
     public void AddBag(Bag bag)

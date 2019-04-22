@@ -17,5 +17,5 @@ MonoBehaviour:
   title: Speed potion
   quality: 0
   price: 5
-  speed: 5
+  speed: 3
   time: 10

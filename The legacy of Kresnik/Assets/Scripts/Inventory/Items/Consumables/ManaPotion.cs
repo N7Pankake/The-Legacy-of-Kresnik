@@ -13,7 +13,7 @@ public class ManaPotion : Item, IUseable
         if (Player.MyInstance.MyMana.MyCurrentValue < Player.MyInstance.MyMana.MyMaxValue)
         {
             Remove();
-            Player.MyInstance.MyMana.MyCurrentValue += mana;
+            Player.MyInstance.GetMana(mana);
         }
     }
 

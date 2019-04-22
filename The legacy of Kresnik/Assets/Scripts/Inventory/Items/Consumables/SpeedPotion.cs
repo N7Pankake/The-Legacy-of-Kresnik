@@ -13,8 +13,13 @@ public class SpeedPotion : Item, IUseable
 
     public void Use()
     {
+        if (!Player.MyInstance.ImBuffed)
+        {
             Remove();
+
+            Player.MyInstance.ImBuffed = true;
             Player.MyInstance.StartCoroutine(Player.MyInstance.IncreaseSpeed(speed, time));
+        }
     }
 
     public override string GetDescription()

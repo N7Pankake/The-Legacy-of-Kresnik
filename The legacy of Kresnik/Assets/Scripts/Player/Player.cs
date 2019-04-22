@@ -48,18 +48,81 @@ public class Player : Character
         }
     }
 
-    //PlayerStats
     //Player Mana
     [SerializeField]
-    private Stat mana;
     private float initMana = 50;
 
+    [SerializeField]
+    private Stat mana;
+    
     public Stat MyMana
     {
         get { return mana; }
         set { mana = value; }
     }
 
+    // In the future you will be able to add some points to you character for now just the gear can add points
+    //[SerializeField]
+    //private int strength;
+    //public int MyStrength
+    //{
+    //    get
+    //    {
+    //        return strength;
+    //    }
+
+    //    set
+    //    {
+    //        strength = value;
+    //    }
+    //}
+
+    //[SerializeField]
+    //private int intelligence;
+    //public int MyIntelligence
+    //{
+    //    get
+    //    {
+    //        return intelligence;
+    //    }
+
+    //    set
+    //    {
+    //        intelligence = value;
+    //    }
+    //}
+
+    //[SerializeField]
+    //private int vitality;
+    //public int MyVitality
+    //{
+    //    get
+    //    {
+    //        return vitality;
+    //    }
+
+    //    set
+    //    {
+    //        vitality = value;
+    //    }
+    //}
+
+    //Is it buffed (? (Only works for speed potion cause is the only buff atm.)
+    private bool buffed = false;
+    public bool ImBuffed
+    {
+        get
+        {
+            return buffed;
+        }
+
+        set
+        {
+            buffed = value;
+        }
+    }
+
+    //Player exp
     [SerializeField]
     private Stat xpStat;
     public Stat MyXP
@@ -77,12 +140,28 @@ public class Player : Character
 
     [SerializeField]
     private Text levelText;
-
-    public int MyGold { get; set; }
     
     //Block skills if I can't see the Target
     [SerializeField]
     private Block[] blocks;
+
+    [SerializeField]
+    private AttackTrigger[] attackTriger;
+    private int exitSword = 1;
+
+    [SerializeField]
+    private int attackDamage;
+    public int MyAttackDamage
+    {
+        get
+        {
+            return attackDamage;
+        }
+        set
+        {
+            attackDamage = value;
+        }
+    }
 
     //Exit Points for skills
     [SerializeField]
@@ -92,25 +171,26 @@ public class Player : Character
     //Game Limits
     private Vector3 min, max;
 
+    private int skillManaCost;
+    
     [SerializeField]
     private Transform minimapIndicator;
-	
+    
 	// Update is called once per frame
 	protected override void Update ()
     {
-            GetInput();
-
+        GetInput();
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, min.x, max.x), Mathf.Clamp(transform.position.y, min.y, max.y), transform.position.z);
-
-            base.Update();
+        base.Update();
     }
 
     public void SetDefaults()
     {
-        MyGold = 1000;
-
+        UIManager.MyInstance.MyGold = 100;
+        
         health.Initialize(initHealth, initHealth);
         mana.Initialize(initMana, initMana);
+        
         MyXP.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
         levelText.text = MyLevel.ToString();
     }
@@ -123,6 +203,7 @@ public class Player : Character
         {
             Direction += Vector2.up;
             exitIndex = 0;
+            exitSword = 0;
             minimapIndicator.eulerAngles = new Vector3(0, 0, -45);
         }
 
@@ -130,16 +211,19 @@ public class Player : Character
         {
             Direction += Vector2.left;
             exitIndex = 3;
-            if(Direction.y == 0)
+            exitSword = 3;
+            if (Direction.y == 0)
             {
                 minimapIndicator.eulerAngles = new Vector3(0, 0, 45);
             }
+
         }
 
         if (Input.GetKey(KeybindManager.MyInstance.Keybinds["Down"]))
         {
             Direction += Vector2.down;
             exitIndex = 2;
+            exitSword = 2;
             minimapIndicator.eulerAngles = new Vector3(0, 0, 135);
         }
 
@@ -147,13 +231,14 @@ public class Player : Character
         {
             Direction += Vector2.right;
             exitIndex = 1;
+            exitSword = 1;
             if (Direction.y == 0)
             {
                 minimapIndicator.eulerAngles = new Vector3(0, 0, -135);
             }
         }
 
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]))
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]) && !IsMoving)
         {
             Attack();
         }
@@ -179,6 +264,10 @@ public class Player : Character
 
         Skill newSkill = SkillBook.MyInstance.CastSkill(skillName);
 
+        int manaCost = SkillBook.MyInstance.MyManaCost;
+
+        float speed = SkillBook.MyInstance.MySkillSpeed;
+
         isUsingSkill = true;
 
         MyAnimator.SetBool("skill", isUsingSkill);
@@ -187,21 +276,22 @@ public class Player : Character
 
         if (currentTarget != null && InLineOfSight())
         {
+            Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
-            s.Initialize(currentTarget, newSkill.MyDamage, transform);
+            s.Initialize(currentTarget, newSkill.MyDamage, manaCost, speed, transform);
         }
 
         StopSkill();
     }
-
+    
     public void CastSkill(string skillName)
     {
         Block();
 
-        if (MyTarget != null && MyTarget.GetComponentInParent<Character>().IsAlive && !isUsingSkill && !IsMoving && InLineOfSight())
-        {
+            if (MyTarget != null && MyTarget.GetComponentInParent<Character>().IsAlive && !isUsingSkill && !IsMoving && InLineOfSight() && Player.MyInstance.MyMana.MyCurrentValue >= SkillBook.MyInstance.MyManaCost)
+            {
             skillRoutine = StartCoroutine(Skills(skillName));
-        }    
+            }  
     }
 
     private bool InLineOfSight()
@@ -224,6 +314,17 @@ public class Player : Character
     {
         IsAttacking = true;
         MyAnimator.SetTrigger("attack");
+
+        foreach (AttackTrigger at in attackTriger)
+        {
+            at.Deactivate();
+        }
+        attackTriger[exitSword].Activate();
+    }
+
+    private void AttackOff()
+    {
+        IsAttacking = false;
     }
 
     public void AddAttacker(Enemy enemy)
@@ -264,6 +365,12 @@ public class Player : Character
         this.max = max;
     }
 
+    public void GetMana(int mana)
+    {
+        MyMana.MyCurrentValue += mana;
+        CombatTextManager.MyInstance.CreateText(transform.position, mana.ToString(), SCTType.Mana, true);
+    }
+
     public IEnumerator RegenHP(int regenTime, int health)
     {
         if (IsAlive)
@@ -271,6 +378,7 @@ public class Player : Character
             for (int i = 0; i < regenTime; ++i)
             {
                 Player.MyInstance.MyHealth.MyCurrentValue += health;
+                CombatTextManager.MyInstance.CreateText(transform.position, health.ToString(), SCTType.Heal, true);
                 yield return new WaitForSeconds(1);
             }
         }
@@ -282,6 +390,7 @@ public class Player : Character
         {
             for (int i = 0; i < regenTime; ++i)
             {
+                CombatTextManager.MyInstance.CreateText(transform.position, mana.ToString(), SCTType.Mana, true);
                 Player.MyInstance.MyMana.MyCurrentValue += mana;
                 yield return new WaitForSeconds(1);
             }
@@ -296,6 +405,9 @@ public class Player : Character
             {
                 Player.MyInstance.MyHealth.MyCurrentValue += health;
                 Player.MyInstance.MyMana.MyCurrentValue += mana;
+                CombatTextManager.MyInstance.CreateText(transform.position, health.ToString(), SCTType.Heal, true);
+                yield return new WaitForSeconds(0.2f);
+                CombatTextManager.MyInstance.CreateText(transform.position, mana.ToString(), SCTType.Mana, true);
                 yield return new WaitForSeconds(1);
             }
         }
@@ -306,8 +418,10 @@ public class Player : Character
         if (IsAlive)
         {
             Player.MyInstance.MySpeed += speed;
+            CombatTextManager.MyInstance.CreateText(transform.position, speed.ToString(), SCTType.Buff, false);
             yield return new WaitForSeconds(time);
             Player.MyInstance.MySpeed = 5;
+            ImBuffed = false;
         }
     }
 
@@ -320,6 +434,13 @@ public class Player : Character
         {
             StartCoroutine(Ding());
         }
+    }
+
+    public IEnumerator GainGold(int gold)
+    {
+        UIManager.MyInstance.MyGold += gold;
+        yield return new WaitForSeconds(0.2f);
+        CombatTextManager.MyInstance.CreateText(transform.position, gold.ToString(), SCTType.Gold, false);
     }
 
     private IEnumerator Ding()

@@ -55,11 +55,13 @@ public class PlayerData
 
     public float MyMaxMana { get; set; }
 
+    public int MyCurrentGold { get; set; }
+
     public float MyX { get; set; }
 
     public float MyY { get; set; }
 
-    public PlayerData(int level, float xp, float maxXP, float health, float maxHealth, float mana, float maxMana, Vector2 position)
+    public PlayerData(int level, float xp, float maxXP, float health, float maxHealth, float mana, float maxMana, int currentGold, Vector2 position)
     {
         this.MyLevel = level;
         this.MyXp = xp;
@@ -70,6 +72,8 @@ public class PlayerData
 
         this.MyMana = mana;
         this.MyMaxMana = maxMana;
+
+        this.MyCurrentGold = currentGold;
 
         this.MyX = position.x;
         this.MyY = position.y;

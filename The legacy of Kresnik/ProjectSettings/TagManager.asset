@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Keybind
   - Interactable
+  - Attack
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SCTType { Damage, Heal, XP}
+public enum SCTType { Damage, Heal, Mana, XP, Buff, Gold}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -44,8 +44,20 @@ public class CombatTextManager : MonoBehaviour
                 before += "+";
                 sct.color = Color.green;
                 break;
-            case SCTType.XP:
+            case SCTType.Mana:
                 before += "+";
+                sct.color = Color.blue;
+                break;
+            case SCTType.Buff:
+                before += "Speed +";
+                sct.color = Color.grey;
+                break;
+            case SCTType.XP:
+                before += "Xp +";
+                sct.color = Color.yellow;
+                break;
+            case SCTType.Gold:
+                before += "Gold +";
                 sct.color = Color.yellow;
                 break;
         }

@@ -188,6 +188,7 @@ public class SaveManager : MonoBehaviour
             Player.MyInstance.MyXP.MyCurrentValue, Player.MyInstance.MyXP.MyMaxValue,
             Player.MyInstance.MyHealth.MyCurrentValue, Player.MyInstance.MyHealth.MyMaxValue,
             Player.MyInstance.MyMana.MyCurrentValue, Player.MyInstance.MyMana.MyMaxValue,
+            UIManager.MyInstance.MyGold,
             Player.MyInstance.transform.position);
     }
 
@@ -284,6 +285,7 @@ public class SaveManager : MonoBehaviour
         Player.MyInstance.MyHealth.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
         Player.MyInstance.MyMana.Initialize(data.MyPlayerData.MyMana, data.MyPlayerData.MyMaxMana);
         Player.MyInstance.MyXP.Initialize(data.MyPlayerData.MyXp, data.MyPlayerData.MyMaxXp);
+        UIManager.MyInstance.MyGold = data.MyPlayerData.MyCurrentGold;
         Player.MyInstance.transform.position = new Vector2(data.MyPlayerData.MyX, data.MyPlayerData.MyY);
     }
 
