@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.85
+  m_Radius: 1
 --- !u!114 &1879531118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.0061863065, y: -0.013027459}
   serializedVersion: 2
-  m_Radius: 0.28874007
+  m_Radius: 0.4
 --- !u!50 &6192934746155982930
 Rigidbody2D:
   serializedVersion: 4
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c3356ae8f4d742ad1e216c199b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Green slime
+  type: Green slime lv1
   health: {fileID: 6192934747036098681}
   initHealth: 30
   speed: 2
@@ -286,6 +286,8 @@ MonoBehaviour:
   hitBox: {fileID: 6192934747712987689}
   goldValue: 5
   attack: {fileID: 1879531115}
+  enemySprite: {fileID: 6192934746155982934}
+  enemyCC2D: {fileID: 6192934746155982928}
   portrait: {fileID: 21300000, guid: b18508d3860280740bb481a903aa57dd, type: 3}
   healthGroup: {fileID: 6192934747199401432}
   initAggroRange: 3
@@ -340,7 +342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.303}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 8.2, y: 12.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6192934746724142863
@@ -506,8 +508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.09}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.4}
+  m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6192934747199401439
 Canvas:

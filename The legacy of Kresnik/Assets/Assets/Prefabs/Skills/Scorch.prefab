@@ -116,7 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cd64023e664dd4d9c313fa4fd78a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  myEffect: 3
+  speed: 10
+  manaCost: 18
 --- !u!95 &290850901249801763
 Animator:
   serializedVersion: 3

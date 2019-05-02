@@ -218,14 +218,158 @@ MonoBehaviour:
     quantity: 0
     unlimited: 1
   - item: {fileID: 11400000, guid: fc046a426f6e7204fa7f24ccae624085, type: 2}
-    quantity: 10
-    unlimited: 0
+    quantity: 0
+    unlimited: 1
   - item: {fileID: 11400000, guid: 4cf74778ed2bf63428df78d16936df5f, type: 2}
-    quantity: 10
-    unlimited: 0
+    quantity: 0
+    unlimited: 1
   - item: {fileID: 11400000, guid: cb1d077abd7421449ad22224a8684feb, type: 2}
-    quantity: 5
-    unlimited: 0
+    quantity: 0
+    unlimited: 1
   - item: {fileID: 11400000, guid: dcb391d1b0f3a0945b5ae74f0569f6ed, type: 2}
-    quantity: 3
+    quantity: 0
+    unlimited: 1
+  - item: {fileID: 11400000, guid: b0aaca137363ef34cbdb9bfe426cfe8b, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 5a867d49e3ecaf449a2bbc5b17a6b820, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: bbda56c2e4db6034abc1e387b7f0417c, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 07a853004b2cf314885ad5843e3aa77d, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4808ecd6e62d4214c93631a931fd072d, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: cf71e3084a434464d83b8491dab620ef, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: f6de3db731f6b024bb9a7e981f12a423, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 2821a62fab7afeb4986c45e4a76af9eb, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 87187f707e6ef2b468b30abc7df728ca, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 1efb05baa35318d40953679b7e2bfffa, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: dacc7737ab11dc7448ca50dddd40a986, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: f91a3636e7f05e941ab20f13fa5a22a9, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4c29930d7bcfefb4e8fe120fd18b4583, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: e827db214cf59084582ccefeb186c2f7, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4519dfa6c45e8c14abe13c6e6ba1fa19, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 11474f1449af86c4dbb40e313cc19bf3, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 078e313acb36cec419a78d381774e9ed, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 99032a49a59a4524097a373962989283, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: f48e8e8208164dd43812b2c5bd2f00f6, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 33cc29ca8a7a1a54584331fc485b9816, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: d3b37ef4cb43b15488a4e615f058f790, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: e07dc73699aa48e4f8577ac50bdd4d2c, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 8dc34b27199904b4ebdc3a8e38060884, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: eb64015c7cbb46e4982b826029aef28b, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: f032e22eb07292f4eaefb6816ad511bc, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: d9e1fc2f6dc21ae42ba06fd60d318e36, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4cab3eb2d7158e044bae88d9c2848b3c, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: d4580210fb9b3594dbf71f0883a4ca04, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: a1d5fa422784023479ec6f873022056d, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4cb625f7b3fb6a7499edf46f4352b17c, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 9a61be3a5fc66d246af767ba4dd915ef, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 3b4e2c0474596264cb610e4a51b920e7, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 6bc319df37624bf4cb03ef584f413066, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: ba8b665e1f2f41c45a562cdc2a465a46, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 9e14443d2c5ed0d4e95dfdd21a70790e, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 36a040894c96e6943a9281145e979137, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 806bca9f1495c38409ca3eb340f026d6, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: f92bd1a9a4bb5974cb992143a431725a, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: bc18ae11ea5873348be55184db0576e1, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 4749ec2a247e5fe418636ec787e2a24a, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: ef1016642710612429cd4b4e668b510c, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 06b3acd7711738c49baf3e792b1bdd2e, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 273c85bdaffd66d448f5dd545cd92cc3, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 0024e8daf715e6344ac5fdd1f65855a0, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 3b24eaa68d4134e49b01360c3b441f5d, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 43c388ef2f83bf84bb607446c3433ac2, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: 038e30ba80da3c04c90990771e9b598d, type: 2}
+    quantity: 1
+    unlimited: 0
+  - item: {fileID: 11400000, guid: d7c1b602085927b4b9b33b125637b5f8, type: 2}
+    quantity: 1
     unlimited: 0

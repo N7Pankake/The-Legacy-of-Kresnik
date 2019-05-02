@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.09}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.4}
+  m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &171120821
 Canvas:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c3356ae8f4d742ad1e216c199b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Red slime
+  type: Red slime lv2
   health: {fileID: 653626513}
   initHealth: 60
   speed: 2.5
@@ -413,10 +413,11 @@ MonoBehaviour:
   hitBox: {fileID: 601207792}
   goldValue: 8
   attack: {fileID: 849627711168043362}
-  damage: 20
+  enemySprite: {fileID: 1198620316}
+  enemyCC2D: {fileID: 1198620315}
   portrait: {fileID: 21300000, guid: b18508d3860280740bb481a903aa57dd, type: 3}
   healthGroup: {fileID: 171120818}
-  initAggroRange: 1.5
+  initAggroRange: 3
   lootTable: {fileID: 1198620311}
 --- !u!114 &1198620311
 MonoBehaviour:
@@ -544,7 +545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.303}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 8.2, y: 12.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2127676726
@@ -644,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d269417c2265134c9943e38e2d5084d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
 --- !u!1 &1272674459790463703
 GameObject:
   m_ObjectHideFlags: 0

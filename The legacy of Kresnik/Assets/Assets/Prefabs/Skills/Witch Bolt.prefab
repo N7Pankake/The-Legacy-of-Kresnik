@@ -135,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cd64023e664dd4d9c313fa4fd78a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myEffect: 0
   speed: 20
-  manaCost: 10
+  manaCost: 5
 --- !u!61 &2822051260451351259
 BoxCollider2D:
   m_ObjectHideFlags: 0

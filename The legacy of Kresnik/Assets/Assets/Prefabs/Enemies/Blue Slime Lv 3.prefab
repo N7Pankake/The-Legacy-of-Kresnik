@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.303}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 8.2, y: 12.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6262220972224269807
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248445506441521991}
   - component: {fileID: 5032194017701957621}
-  - component: {fileID: 3972905266831276794}
+  - component: {fileID: 7501157685707475850}
   m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
@@ -170,7 +170,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.85
---- !u!114 &3972905266831276794
+--- !u!114 &7501157685707475850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,10 +179,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2808494902125846460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d269417c2265134c9943e38e2d5084d, type: 3}
+  m_Script: {fileID: 11500000, guid: ebcc7ca900fd92f45b47a7ee52ff4dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 8
+  damageMana: 10
 --- !u!1 &3726381455241344719
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c3356ae8f4d742ad1e216c199b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Blue slime
+  type: Blue slime lv3
   health: {fileID: 2672573310512165408}
   initHealth: 50
   speed: 3
@@ -427,9 +428,11 @@ MonoBehaviour:
   hitBox: {fileID: 1768523331565509387}
   goldValue: 12
   attack: {fileID: 2808494902125846460}
+  enemySprite: {fileID: 8068070424891923113}
+  enemyCC2D: {fileID: 4920043772653841970}
   portrait: {fileID: 21300000, guid: b18508d3860280740bb481a903aa57dd, type: 3}
   healthGroup: {fileID: 8296991207609289234}
-  initAggroRange: 1.5
+  initAggroRange: 3
   lootTable: {fileID: 3550724273521034969}
 --- !u!114 &3550724273521034969
 MonoBehaviour:
@@ -638,8 +641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.09}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.4}
+  m_SizeDelta: {x: 1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6175836532192271191
 Canvas:
