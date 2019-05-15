@@ -715,16 +715,12 @@ MonoBehaviour:
   - {fileID: 817103650717037732}
   minimapIndicator: {fileID: 98232554}
   swordSounds:
-  - {fileID: 8300000, guid: 32d44dd408b47044d817553341887f20, type: 3}
   - {fileID: 8300000, guid: b267cfe196888394a93674e69d7279c2, type: 3}
   - {fileID: 8300000, guid: e23e6ba7330fb824bbae66690e8da455, type: 3}
-  - {fileID: 8300000, guid: 525ac4cc5711ff845bc31454c7e22a78, type: 3}
-  - {fileID: 8300000, guid: 44081e98c7fc1ab4da765ad3c14fb983, type: 3}
-  - {fileID: 8300000, guid: c0bf65565d049c34583307e02eca8ba0, type: 3}
   - {fileID: 8300000, guid: 9a246682766c9fe4ea0b9e78071dd33f, type: 3}
   - {fileID: 8300000, guid: 284b290376aa53d49acfdd281bd31faf, type: 3}
-  - {fileID: 8300000, guid: 4f92773f2d07259439cc947cfc2f6939, type: 3}
   - {fileID: 8300000, guid: aac1ec17269a40c4685de91a923623b6, type: 3}
+  - {fileID: 8300000, guid: 782a35766353d5346a2e7119af9c66e1, type: 3}
   skills:
   - {fileID: 6977897769709050275, guid: 5aa357ac74a857a47aa32369984de343, type: 3}
   - {fileID: 5071406364762802126, guid: d5fc7a4347b417c469c352bcbfe42123, type: 3}

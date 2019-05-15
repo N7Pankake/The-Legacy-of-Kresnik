@@ -62,7 +62,8 @@ public abstract class Character : MonoBehaviour {
 
     //Character Skills&Attacks
     protected bool isUsingSkill = false;
-    
+    protected bool isUsingHeal = false;
+
     public bool IsAttacking { get; set; }
 
     protected Coroutine actionRoutine;
@@ -113,6 +114,8 @@ public abstract class Character : MonoBehaviour {
         }
     }
 
+    private bool audioIsPlaying = false;
+
     // Use this for initialization
     protected virtual void Start ()
     {
@@ -154,6 +157,10 @@ public abstract class Character : MonoBehaviour {
             {
                 ActivateLayer("SkillLayer");
             }
+            else if (isUsingHeal)
+            {
+                ActivateLayer("HealLayer");
+            }
             else if (IsAttacking)
             {
                 ActivateLayer("AttackLayer");
@@ -186,6 +193,13 @@ public abstract class Character : MonoBehaviour {
 
         if (health.MyCurrentValue <= 0)
         {
+            if (gameObject.tag == "Player" && !audioIsPlaying)
+            {
+                audioIsPlaying = true;
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.PlayOneShot(Player.MyInstance.MyGameOver);
+            }
+
             Direction = Vector2.zero;
             myRigidBody.velocity = Direction;
             GameManager.MyInstance.OnKillConfirmed(this);

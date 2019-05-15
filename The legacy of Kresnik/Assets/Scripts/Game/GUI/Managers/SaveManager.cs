@@ -32,8 +32,7 @@ public class SaveManager : MonoBehaviour
     private SavedGame current;
 
     private string action;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         chests = FindObjectsOfType<Chest>();

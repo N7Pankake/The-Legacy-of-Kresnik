@@ -1,0 +1,2 @@
+Z:\GitHub\The-Legacy-of-Kresnik\The legacy of Kresnik\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+Z:\GitHub\The-Legacy-of-Kresnik\The legacy of Kresnik\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059f0db9fff4537459105d1a06ea216a, type: 3}
   m_Name: Skeletal Helm of Fallen Fortunes
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fd6e4fc32c78509458fc45ea4a478ba8, type: 3}
   stackSize: 0
   title: Skeletal Helm of Fallen Fortunes
   quality: 3

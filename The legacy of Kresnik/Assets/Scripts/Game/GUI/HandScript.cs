@@ -46,17 +46,16 @@ public class HandScript : MonoBehaviour
 
     public void TakeMoveable (IMoveable moveable)
     {
-        icon.enabled = true;
         this.MyMoveable = moveable;
         icon.sprite = moveable.MyIcon;
-        icon.color = Color.white;
+        icon.enabled = true;
     }
 
     public IMoveable Put()
     {
         IMoveable tmp = MyMoveable;
         MyMoveable = null;
-        icon.color = new Color(0, 0, 0, 0);
+        icon.enabled = false;
 
         return tmp;
     }
@@ -65,7 +64,7 @@ public class HandScript : MonoBehaviour
     {
         icon.enabled = false;
         MyMoveable = null;
-        icon.color = new Color(0, 0, 0, 0);
+        icon.enabled = false;
         InventoryScript.MyInstance.FromSlot = null;
     }
 

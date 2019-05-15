@@ -135,12 +135,6 @@ public class UIManager : MonoBehaviour
             OpenClose(menus[4]);
         }
 
-        //Save
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            OpenClose(menus[2]);
-        }
-
         //Skill book
         if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Skillbook"]))
         {
@@ -154,7 +148,7 @@ public class UIManager : MonoBehaviour
         }
 
         //Character Panel
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Character"]))
         {
             charPanel.OpenClose();
         }
@@ -243,35 +237,33 @@ public class UIManager : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
     }
 
+    //Updates the stacksize on a slot
     public void UpdateStackSize(IClickable clickable)
     {
-        if (clickable.MyCount > 1)
+        if (clickable.MyCount > 1) //more than one
         {
-            clickable.MyIcon.enabled = true;
             clickable.MyStackText.text = clickable.MyCount.ToString();
-            clickable.MyStackText.color = Color.white;
-            clickable.MyIcon.color = Color.white;
-        }
-
-        else
-        {
+            clickable.MyStackText.enabled = true;
             clickable.MyIcon.enabled = true;
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
-            clickable.MyIcon.color = Color.white;
         }
 
-        if (clickable.MyCount == 0)
+        else // only one
         {
+            clickable.MyStackText.enabled = false;
+            clickable.MyIcon.enabled = true;
+        }
+
+        if (clickable.MyCount == 0) // empty slot
+        {
+            clickable.MyStackText.enabled = false;
             clickable.MyIcon.enabled = false;
-            clickable.MyIcon.color = new Color(0, 0, 0, 0);
-            clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
     }
 
     public void ClearStackCount(IClickable clickable)
     {
-        clickable.MyStackText.color = new Color(0, 0, 0, 0);
-        clickable.MyIcon.color = Color.white;
+        clickable.MyStackText.enabled = false;
+        clickable.MyIcon.enabled = true;
     }
 
     public void ShowTooltip(Vector2 pivot, Vector3 position, IDescribable description)

@@ -36,8 +36,6 @@ public class QuestGiverWindow : Window
     
     public void ShowQuests(QuestGiver questGiver)
     {
-        Debug.Log("Target: Quest Giver");
-
         this.questGiver = questGiver;
 
         foreach(GameObject go in quests)
@@ -53,7 +51,7 @@ public class QuestGiverWindow : Window
             if(quest != null)
             {
                 GameObject go = Instantiate(questPrefab, questArea);
-                go.GetComponent<TextMeshProUGUI>().text = "<size=60>[" + quest.MyLevel+ "] " + quest.MyTitle + "<color=#ffbb04> !</color></size>";
+                go.GetComponent<TextMeshProUGUI>().text = "<size=50>[" + quest.MyLevel+ "] " + quest.MyTitle + "<color=#ffbb04> !</color></size>";
 
                 go.GetComponent<QGQScript>().MyQuest = quest;
 
@@ -61,7 +59,7 @@ public class QuestGiverWindow : Window
 
                 if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
                 {
-                    go.GetComponent<TextMeshProUGUI>().text = "<size=60>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#FFFF00> ?</color></size>";
+                    go.GetComponent<TextMeshProUGUI>().text = "<size=50>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#FFFF00> ?</color></size>";
                 }
 
                 else if (QuestLog.MyInstance.HasQuest(quest))
@@ -70,7 +68,7 @@ public class QuestGiverWindow : Window
                     color.a = 0.5f;
 
                     go.GetComponent<TextMeshProUGUI>().color = color;
-                    go.GetComponent<TextMeshProUGUI>().text = "<size=60>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#C0C0C0> ?</color></size>";
+                    go.GetComponent<TextMeshProUGUI>().text = "<size=50>[" + quest.MyLevel + "] " + quest.MyTitle + "<color=#C0C0C0> ?</color></size>";
                 }
             }
         }

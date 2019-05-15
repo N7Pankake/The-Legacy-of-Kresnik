@@ -41,6 +41,7 @@ public class KeybindManager : MonoBehaviour
         BindKey("Inventory", KeyCode.I);
         BindKey("Pause", KeyCode.Escape);
         BindKey("Questlog", KeyCode.F2);
+        BindKey("Character", KeyCode.C);
 
         BindKey("Act1", KeyCode.Alpha1);
         BindKey("Act2", KeyCode.Alpha2);

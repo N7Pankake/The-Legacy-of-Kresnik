@@ -196,6 +196,10 @@ public class Player : Character
     [SerializeField]
     private AudioClip[] swordSounds;
 
+    [SerializeField]
+    private AudioClip  gameOver;
+    public AudioClip MyGameOver { get => gameOver; set => gameOver = value; }
+
     private SkillScript ss;
 
     [SerializeField]
@@ -206,6 +210,7 @@ public class Player : Character
 
     private int copyManaCost;
     public int CopyManaCost { get => copyManaCost; set => copyManaCost = value; }
+    
 
     // Update is called once per frame
     protected override void Update ()
@@ -222,7 +227,7 @@ public class Player : Character
 
     public void SetDefaults()
     {
-        UIManager.MyInstance.MyGold = 0;
+        UIManager.MyInstance.MyGold = 150;
         
         health.Initialize(initHealth, initHealth);
         mana.Initialize(initMana, initMana);
@@ -273,7 +278,7 @@ public class Player : Character
             }
         }
 
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]) && !IsMoving && Time.time > nextAttack && IsAlive && !IsAttacking && !isUsingSkill)
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["Melee"]) && !IsMoving && Time.time > nextAttack && IsAlive && !IsAttacking && !isUsingSkill && !isUsingHeal)
         {
             nextAttack = Time.time + playerCD;
             Attack();
@@ -282,6 +287,7 @@ public class Player : Character
         if(IsMoving)
         {
             StopSkill();
+            StopHeal();
         }
 
         foreach (string action in KeybindManager.MyInstance.ActionBinds.Keys)
@@ -295,11 +301,11 @@ public class Player : Character
 
     private void Attack()
     {
-        int randomClip = Random.Range(0, 10);
+        int randomClip = Random.Range(0, 7);
 
         AudioSource audio = GetComponent<AudioSource>();
-        audio.clip = swordSounds[randomClip];
-        audio.Play();
+        audio.PlayOneShot(swordSounds[randomClip]);
+
 
         IsAttacking = true;
         MyAnimator.SetTrigger("attack");
@@ -362,17 +368,17 @@ public class Player : Character
         }
 
 
-        if (effect == Effect.Heal && !isUsingSkill && !IsMoving && Player.MyInstance.MyMana.MyCurrentValue >= manaCost && !IsAttacking)
+        if (effect == Effect.Heal && !isUsingSkill && !isUsingHeal && !IsMoving && Player.MyInstance.MyMana.MyCurrentValue >= manaCost && !IsAttacking)
         {
             actionRoutine = StartCoroutine(Skills(skillName, effect, manaCost));
         }
 
-        if (effect == Effect.Regen && !isUsingSkill && !IsMoving && Player.MyInstance.MyMana.MyCurrentValue >= manaCost && !IsAttacking)
+        if (effect == Effect.Regen && !isUsingSkill && !isUsingHeal && !IsMoving && Player.MyInstance.MyMana.MyCurrentValue >= manaCost && !IsAttacking)
         {
             actionRoutine = StartCoroutine(Skills(skillName, effect, manaCost));
         }
 
-        if (MyTarget != null && MyTarget.GetComponentInParent<Character>().IsAlive && !isUsingSkill && !IsMoving && !IsAttacking && InLineOfSight() && Player.MyInstance.MyMana.MyCurrentValue >= manaCost)
+        if (MyTarget != null && MyTarget.GetComponentInParent<Character>().IsAlive && !isUsingSkill && !isUsingHeal && !IsMoving && !IsAttacking && InLineOfSight() && Player.MyInstance.MyMana.MyCurrentValue >= manaCost)
         {
             actionRoutine = StartCoroutine(Skills(skillName, effect, manaCost));
         }
@@ -385,10 +391,18 @@ public class Player : Character
         Skill newSkill = SkillBook.MyInstance.CastSkill(skillName);
 
         float speed = SkillBook.MyInstance.MySkillSpeed;
+        
+        if (effect == Effect.Damage)
+        {
+            isUsingSkill = true;
+            MyAnimator.SetBool("skill", isUsingSkill);
+        }
 
-        isUsingSkill = true;
-
-        MyAnimator.SetBool("skill", isUsingSkill);
+        if (effect == Effect.Heal || effect == Effect.Regen)
+        {
+            isUsingHeal = true;
+            MyAnimator.SetBool("heal", isUsingHeal);
+        }
 
         yield return new WaitForSeconds(newSkill.MyCastTime);
 
@@ -397,6 +411,7 @@ public class Player : Character
             Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
             s.Initialize(currentTarget, (newSkill.MyDamage + (arcanaDamage / 2)), manaCost, speed, transform);
+            StopHeal();
         }
 
         if (effect == Effect.Regen)
@@ -404,6 +419,7 @@ public class Player : Character
             Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
             s.Initialize(currentTarget, (newSkill.MyDamage + (arcanaDamage / 3)), manaCost, speed, transform);
+            StopHeal();
         }
 
         if (currentTarget != null && InLineOfSight() && effect == Effect.Damage)
@@ -411,6 +427,7 @@ public class Player : Character
             Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
             s.Initialize(currentTarget, (newSkill.MyDamage + arcanaDamage), manaCost, speed, transform);
+            StopSkill();
         }
 
         if (currentTarget != null && InLineOfSight() && effect == Effect.Dps)
@@ -418,6 +435,7 @@ public class Player : Character
             Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
             s.Initialize(currentTarget, (newSkill.MyDamage + (arcanaDamage / 3)), manaCost, speed, transform);
+            StopSkill();
         }
 
         if (currentTarget != null && InLineOfSight() && effect == Effect.Stun)
@@ -425,15 +443,13 @@ public class Player : Character
             Player.MyInstance.MyMana.MyCurrentValue -= manaCost;
             SkillScript s = Instantiate(newSkill.MySkillPrefab, exitPoints[exitIndex].position, Quaternion.identity).GetComponent<SkillScript>();
             s.Initialize(currentTarget, (newSkill.MyDamage + (arcanaDamage / 9)), manaCost, speed, transform);
+            StopSkill();
         }
-
-
-        StopSkill();
     }
 
     public void Loot(string actionName, List<Drop> items)
     {
-        if (!isUsingSkill && !IsAttacking)
+        if (!isUsingSkill && !isUsingHeal && !IsAttacking && IsAlive)
         {
             actionRoutine = StartCoroutine(LootRoutine(actionName, items));
         }
@@ -496,6 +512,20 @@ public class Player : Character
         isUsingSkill = false;
 
         MyAnimator.SetBool("skill", isUsingSkill);
+
+        if (actionRoutine != null)
+        {
+            StopCoroutine(actionRoutine);
+        }
+    }
+
+    public void StopHeal()
+    {
+        SkillBook.MyInstance.StopCasting();
+
+        isUsingHeal = false;
+
+        MyAnimator.SetBool("heal", false);
 
         if (actionRoutine != null)
         {
@@ -661,7 +691,7 @@ public class Player : Character
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Interactable")
+        if ((collision.tag == "Enemy" || collision.tag == "Boss") || collision.tag == "Interactable")
         {
             IInteractable interactable = collision.GetComponent<IInteractable>();
 
@@ -674,7 +704,7 @@ public class Player : Character
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Interactable")
+        if ((collision.tag == "Enemy" || collision.tag == "Boss") || collision.tag == "Interactable")
         {
             if(MyInteractables.Count > 0)
             {
@@ -691,8 +721,8 @@ public class Player : Character
     }
 
     public IEnumerator Die()
-    {
-        yield return new WaitForSeconds(5);
+    {    
+        yield return new WaitForSeconds(7);
         SceneManager.LoadScene(2);
     }
 }

@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     [SerializeField]
     private Player player;
     
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
 
-            if (hit.collider != null && hit.collider.tag == "Enemy")
+            if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Boss"))
             {
                 DeSelectTarget();
                 SelectTarget(hit.collider.GetComponent<Enemy>());
@@ -73,7 +72,7 @@ public class GameManager : MonoBehaviour
             {
                 IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
 
-                if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity))
+                if (hit.collider != null && ((hit.collider.tag == "Enemy" || hit.collider.tag == "Boss") || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity))
                 {
                     entity.Interact();
                 }

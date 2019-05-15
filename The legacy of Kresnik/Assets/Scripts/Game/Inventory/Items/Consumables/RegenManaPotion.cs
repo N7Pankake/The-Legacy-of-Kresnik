@@ -23,6 +23,6 @@ public class RegenManaPotion : Item, IUseable
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\n<color=#00ff00ff>Use: Restores {0} mana \nper {1} second(s)</color>", mana, regenTime);
+        return base.GetDescription() + string.Format("\n<color=#0000ff>Use: Restores {0} mana \nper {1} second(s)</color>", mana, regenTime);
     }
 }

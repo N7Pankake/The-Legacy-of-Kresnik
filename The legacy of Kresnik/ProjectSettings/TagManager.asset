@@ -13,6 +13,9 @@ TagManager:
   - SpikesHitbox
   - PlayerHitbox
   - HealHitbox
+  - Boss
+  - Music
+  - MusicGame
   layers:
   - Default
   - TransparentFX

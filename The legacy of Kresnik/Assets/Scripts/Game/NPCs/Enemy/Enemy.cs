@@ -81,7 +81,7 @@ public class Enemy : Character, IInteractable
         health.Initialize(initHealth, initHealth);
         MyStartPosition = transform.position;
         MyAggroRange = initAggroRange;
-        MyAttackRange = 0.8f;
+        MyAttackRange = 1f;
         ChangeState(new IdleState());
     }
 
@@ -100,7 +100,6 @@ public class Enemy : Character, IInteractable
 
     public Transform Select()
     {
-        Debug.Log("Target: Enemy");
         healthGroup.alpha = 1;
         return hitBox;
     }
@@ -124,8 +123,28 @@ public class Enemy : Character, IInteractable
 
                 OnHealthChanged(health.MyCurrentValue);
 
+                if (gameObject.tag == "Boss")
+                {
+                    BossVoice.MyInstance.BossAttackedVoice();
+                }
+
+                else if(gameObject.tag == "Enemy")
+                {
+                    EnemyVoice.MyInstance.EnemyAttacked();
+                }
+
                 if (!IsAlive)
                 {
+                    if (gameObject.tag == "Enemy")
+                    {
+                        EnemyVoice.MyInstance.EnemyDeath();
+                    }
+
+                    if (gameObject.tag == "Boss")
+                    {
+                        BossVoice.MyInstance.BossDeath();
+                    }
+
                     enemySprite.sortingOrder = -1;
                     enemyCC2D.isTrigger = true;
                     Player.MyInstance.MyAttackers.Remove(this);
@@ -148,8 +167,28 @@ public class Enemy : Character, IInteractable
 
                 OnHealthChanged(health.MyCurrentValue);
 
+                if (gameObject.tag == "Boss")
+                {
+                    BossVoice.MyInstance.BossAttackedVoice();
+                }
+
+                else if (gameObject.tag == "Enemy")
+                {
+                    EnemyVoice.MyInstance.EnemyAttacked();
+                }
+
                 if (!IsAlive)
                 {
+                    if (gameObject.tag == "Enemy")
+                    {
+                        EnemyVoice.MyInstance.EnemyDeath();
+                    }
+
+                    if (gameObject.tag == "Boss")
+                    {
+                        BossVoice.MyInstance.BossDeath();
+                    }
+
                     enemySprite.sortingOrder = -1;
                     enemyCC2D.isTrigger = true;
                     Player.MyInstance.MyAttackers.Remove(this);
@@ -172,8 +211,28 @@ public class Enemy : Character, IInteractable
 
                 OnHealthChanged(health.MyCurrentValue);
 
+                if (gameObject.tag == "Boss")
+                {
+                    BossVoice.MyInstance.BossAttackedVoice();
+                }
+
+                else if (gameObject.tag == "Enemy")
+                {
+                    EnemyVoice.MyInstance.EnemyAttacked();
+                }
+
                 if (!IsAlive)
                 {
+                    if (gameObject.tag == "Enemy")
+                    {
+                        EnemyVoice.MyInstance.EnemyDeath();
+                    }
+
+                    if (gameObject.tag == "Boss")
+                    {
+                        BossVoice.MyInstance.BossDeath();
+                    }
+
                     enemySprite.sortingOrder = -1;
                     enemyCC2D.isTrigger = true;
                     Player.MyInstance.MyAttackers.Remove(this);
@@ -261,6 +320,15 @@ public class Enemy : Character, IInteractable
 
     public void AttackOn()
     {
+        if (gameObject.tag == "Enemy" && IsAlive)
+        {
+            EnemyVoice.MyInstance.EnemyAttack();
+        }
+
+        if (gameObject.tag == "Boss" && IsAlive)
+        {
+            BossVoice.MyInstance.BossAttack();
+        }
         attack.SetActive(true);
     }
 

@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300012, guid: d6f33360f7a99ca45a00ecbd736aba19, type: 3}
+  m_Sprite: {fileID: 21300014, guid: d6f33360f7a99ca45a00ecbd736aba19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,34 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 0}
-  quests:
-  - title: Kill slimes
-    description: I need you to kill 1 green slime, those little bastards ate all my
-      clothes the last time
-    level: 5
-    xp: 25
-    collectObjectives: []
-    killObjectives:
-    - amount: 1
-      type: Green slime
-  - title: Le potione
-    description: I need you to find for me 3 health potions
-    level: 5
-    xp: 25
-    collectObjectives:
-    - amount: 10
-      type: Health potion
-    killObjectives: []
-  - title: Test
-    description: I need you to find for me 2 health potions and to kill 2 slimes
-    level: 5
-    xp: 50
-    collectObjectives:
-    - amount: 2
-      type: Health potion
-    killObjectives:
-    - amount: 2
-      type: Green slime
+  quests: []
   question: {fileID: 21300000, guid: 9f25ce7c451b24e41992cedd8f98c069, type: 3}
   questionSilver: {fileID: 21300000, guid: d12f799d81674904cbe7ebf955f06f0d, type: 3}
   exclamation: {fileID: 21300000, guid: cdeaccf9142c6144f952eba066fe279f, type: 3}

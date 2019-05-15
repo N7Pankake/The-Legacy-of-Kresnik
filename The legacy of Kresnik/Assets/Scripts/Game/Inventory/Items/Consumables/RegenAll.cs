@@ -26,6 +26,6 @@ public class RegenAll : Item, IUseable
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\n<color=#00ff00ff>Use: Restores {0} mana and {1} health\nper {2} second(s)</color>", mana, health, regenTime);
+        return base.GetDescription() + string.Format("\n<color=#00ffff>Use: Restores {0} mana and {1} health\nper {2} second(s)</color>", mana, health, regenTime);
     }
 }

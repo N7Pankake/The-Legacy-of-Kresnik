@@ -23,7 +23,7 @@ public class AttackTrigger: MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "Boss")
             {
             Character c = collision.GetComponentInParent<Character>();
             c.DamageTaken(Player.MyInstance.MyAttackDamage, source);

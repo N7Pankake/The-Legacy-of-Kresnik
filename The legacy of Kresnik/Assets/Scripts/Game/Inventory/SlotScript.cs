@@ -26,6 +26,16 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     [SerializeField]
     private Image icon;
 
+    [SerializeField]
+    private Image cover;
+    public Image MyCover
+    {
+        get
+        {
+            return cover;
+        }
+    }
+
     public bool IsEmpty
     {
         get
@@ -114,7 +124,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
                     else if (HandScript.MyInstance.MyMoveable is Armor)
                     {
-                        if (MyItem is Armor && (MyItem as Armor).MyArmorType == (HandScript.MyInstance.MyMoveable as Armor).MyArmorType)
+                        if (MyItem is Armor && (MyItem as Armor).MyArmorType == (HandScript.MyInstance.MyMoveable as Armor).MyArmorType && Player.MyInstance.IsAlive)
                         {
                             (MyItem as Armor).Equip();
                             HandScript.MyInstance.Drop();
@@ -173,6 +183,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         items.Push(item);
         icon.sprite = item.MyIcon;
         icon.color = Color.white;
+        MyCover.enabled = false;
         item.MySlot = this;
         return true;
     }
@@ -208,7 +219,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     public void Clear()
     {
         int initCount = MyItems.Count;
-
+        MyCover.enabled = false;
         if (initCount > 0)
         {
             for (int i = 0; i < initCount; i++)
@@ -225,7 +236,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
             (MyItem as IUseable).Use();
         }
 
-        else if (MyItem is Armor)
+        else if (MyItem is Armor && Player.MyInstance.IsAlive)
         {
             (MyItem as Armor).Equip();
         }
@@ -244,9 +255,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     private bool PutItemBack()
     {
-        if(InventoryScript.MyInstance.FromSlot == this)
+        MyCover.enabled = false;
+        if (InventoryScript.MyInstance.FromSlot == this)
         {
-            InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
+            InventoryScript.MyInstance.FromSlot.MyIcon.enabled = true;
             return true;
         }
         return false;
@@ -254,6 +266,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     private bool SwapItems(SlotScript from)
     {
+        from.MyCover.enabled = false;
         if (IsEmpty)
         {
             return false;

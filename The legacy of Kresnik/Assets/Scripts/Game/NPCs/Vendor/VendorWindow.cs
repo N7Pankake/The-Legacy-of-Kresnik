@@ -83,7 +83,6 @@ public class VendorWindow : Window
 
     public override void OpenWindow(NPC npc)
     {
-        Debug.Log("Target: Vendor");
         CreatePages((npc as Vendor).MyItems);
         base.OpenWindow(npc);
     }

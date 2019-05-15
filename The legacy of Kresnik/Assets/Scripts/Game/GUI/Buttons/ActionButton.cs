@@ -105,6 +105,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         }
     }
 
+    //Sets usables on an action button
     public void SetUseable(IUseable useable)
     {
         if (useable is Item)
@@ -137,8 +138,9 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
         MyIcon.sprite = moveable.MyIcon;
         MyIcon.color = Color.white;
+        MyIcon.enabled = true;
 
-        if(count > 1)
+        if (count > 1)
         {
             UIManager.MyInstance.UpdateStackSize(this);
         }

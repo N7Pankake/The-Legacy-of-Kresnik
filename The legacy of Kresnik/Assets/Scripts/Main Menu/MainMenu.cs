@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour {
     [SerializeField]
     private CanvasGroup loadCanvas;
 
-    public void Tutorial()
+    public void Options()
     {
         SceneManager.LoadScene(1);
     }

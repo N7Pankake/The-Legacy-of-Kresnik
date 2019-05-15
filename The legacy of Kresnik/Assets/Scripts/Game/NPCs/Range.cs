@@ -13,8 +13,17 @@ public class Range : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && parent.IsAlive)
         {
+            if (parent.gameObject.tag == "Boss")
+            {
+                BossVoice.MyInstance.BossInRange();
+            }
+
+            if (parent.gameObject.tag == "Enemy")
+            {
+                EnemyVoice.MyInstance.EnemyInRange();
+            }
             parent.SetTarget(collision.transform);
         }
     }
